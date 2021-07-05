@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
-
 import '../assets/css/App.css';
 
-import HelloWorld from '../components/App/HelloWorld';
+import MainLayout from '../components/MainScreen/MainLayout';
+
+
+//ROUTER PAGE
+
 
 class App extends Component {
   render() {
+    const allStyle = {
+      padding: 0,
+      margin: 0,
+      backgroundColor: '#3b9893'
+    }
     return (
-      <div>
-        <HelloWorld />
+      <div style={allStyle}>
+        <MainLayout />
       </div>
     );
   }
