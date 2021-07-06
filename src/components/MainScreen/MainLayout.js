@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button';
 
 import AppBarLayout from "./AppBar/AppBarLayout.js" ;
 import data from '../../assets/data.json'
@@ -13,6 +12,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#f5f5f5",
   },
+  button: {
+    display: "table",
+    margin: "0 auto",
+    padding: 0
+  }
 }));
 
 
@@ -25,8 +29,10 @@ export default function MainLayout () {
         <AppBarLayout/>
       </div>
       <RecipeCards data={data.data} />
-      <div>
-        <button>ADD</button>
+      <div className={classes.button}>
+        <Button variant="contained" color="primary" >
+          Add
+        </Button>
       </div>
     </div>
     )
