@@ -11,13 +11,7 @@ import RecipeCards from "./RecipeCards";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
-    marginTop: "20px"
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+    backgroundColor: "#f5f5f5",
   },
 }));
 
@@ -26,28 +20,11 @@ export default function MainLayout () {
   const classes = useStyles()
 
   return (
-    <div>
+    <div className={classes.root}>
       <div>
         <AppBarLayout/>
       </div>
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          <ReciperCards data={data.data} />
-        </Grid>
-      </div>
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>xs=3</Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>xs=3</Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>xs=3</Paper>
-          </Grid>
-        </Grid>
-      </div>
+      <RecipeCards data={data.data} />
       <div>
         <button>ADD</button>
       </div>

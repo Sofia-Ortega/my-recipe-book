@@ -1,6 +1,8 @@
 //Iterate through recipe cards
 import React from 'react'
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper'
+
 import RecipeCard from "./RecipeCard";
 import {makeStyles} from "@material-ui/core/styles";
 
@@ -14,21 +16,41 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  recipeCards: {
+    display: "flex",
+    flexWrap: "wrap"
+  }
 }));
 
 export default function RecipeCards({data}) {
+  const classes = useStyles();
 
+
+  // return (
+  //   <div>
+  //     <div className={classes.root}>
+  //       <Grid container spacing={3}>
+  //         {
+  //           data.map((recipe) => (
+  //             <Grid item xs={3}>
+  //               <RecipeCard dat={recipe} key={recipe.id}/>
+  //             </Grid>
+  //           ))
+  //         }
+  //       </Grid>
+  //     </div>
+  //   </div>
+  //
+  // )
 
   return (
-    <div>
+    <div className={classes.recipeCards}>
       {
         data.map((recipe) => (
-          <Grid item xs={3}>
-            <RecipeCard dat={recipe} key={recipe.id}/>
-          </Grid>
+          <RecipeCard dat={recipe} key={recipe.id}/>
         ))
       }
-    </div>
 
+    </div>
   )
 }

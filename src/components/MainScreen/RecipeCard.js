@@ -9,11 +9,11 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 200,
+    width: "250px",
+    height: "150px",
     padding: theme.spacing(2),
-    // padding: theme.spacing(2),
-    // textAlign: 'center',
-    // color: theme.palette.text.secondary,
+    margin: "10px"
+
   },
 
   title: {
