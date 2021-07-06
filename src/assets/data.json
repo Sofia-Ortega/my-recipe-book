@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "title": "Picadillo",
+      "description": "Meat and Vegetables",
+      "type": "Dinner",
+      "id": 1
+    },
+    {
+      "title": "Chocolate Cake",
+      "description": "Pure yumminess",
+      "type": "Dessert",
+      "id": 2
+    },
+    {
+      "title": "Scrambled Eggs",
+      "description": "A perfect start to the day",
+      "type": "Breakfast",
+      "id": 3
+    }
+  ]
+}

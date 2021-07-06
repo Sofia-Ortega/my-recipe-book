@@ -12,7 +12,6 @@ class App extends Component {
     const allStyle = {
       padding: 0,
       margin: 0,
-      backgroundColor: '#3b9893'
     }
     return (
       <div style={allStyle}>
