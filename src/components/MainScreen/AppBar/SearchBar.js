@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function SearchBar() {
   const searchBarStyle = {
-    flex: 3,
+    flex: 12,
     textAlign: "center",
   }
 

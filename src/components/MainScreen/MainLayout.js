@@ -11,6 +11,7 @@ import RecipeCards from "./RecipeCards";
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#f5f5f5",
+    height: "100vh"
   },
   button: {
     display: "table",

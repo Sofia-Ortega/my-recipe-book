@@ -3,23 +3,32 @@ import SearchBar from "./SearchBar";
 
 export default function AppBarLayout() {
   const appBarStyle = {
-    backgroundColor: "#80ffaf",
+    backgroundColor: "#ffffff",
     display: "flex",
     margin: 0,
-    padding: 0
+    padding: "20px 0",
   }
 
   const logoStyle = {
-    borderBottom: "1px black solid",
     width: "33vw",
+    margin: "0 0 0 10px",
+    padding: "0 2px",
     textAlign: "center",
-    flex: 1
+    flex: 5,
+    fontSize: "30px",
+    color: "#02005D",
+    fontFamily: "Pacifico",
+    fontWeight: "400",
+    textDecoration: "underline",
+    textDecorationStyle: ""
+    // borderBottom: "3px solid #02005D"
+
 
   }
 
   return(
     <div style={appBarStyle}>
-      <div style={logoStyle}>App bar</div>
+      <div style={logoStyle}>My Recipe Book</div>
       <SearchBar />
     </div>
   )

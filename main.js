@@ -1,6 +1,7 @@
 'use strict';
 
 // Import parts of electron to use
+
 const {app, BrowserWindow} = require('electron');
 const path = require('path')
 const url = require('url')
@@ -21,6 +22,9 @@ function createWindow() {
     width: 1024, height: 768, show: false
   });
 
+  mainWindow.setMenu(null)
+
+
   // and load the index.html of the app.
   let indexPath;
   if ( dev && process.argv.indexOf('--noDevServer') === -1 ) {
@@ -38,6 +42,7 @@ function createWindow() {
     });
   }
   mainWindow.loadURL( indexPath );
+
 
   // Don't show until we are ready and loaded
   mainWindow.once('ready-to-show', () => {
