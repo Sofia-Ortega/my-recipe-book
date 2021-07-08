@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 import { ipcRenderer } from "electron";
 import Button from '@material-ui/core/Button';
 import AppBarLayout from "./AppBar/AppBarLayout.js" ;
@@ -38,6 +39,9 @@ export default class MainLayout extends Component {
         </div>
         <RecipeCards data={data.data} openCard={this.openCard}/>
         <div style={addButton}>
+          <Link to="/expandRecipe">
+            <button>Expand Recipe</button>
+          </Link>
           <Button variant="contained" color="primary" >
             Add
           </Button>
