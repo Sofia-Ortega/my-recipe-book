@@ -22,14 +22,14 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function RecipeCards({data}) {
+export default function RecipeCards({data, openCard}) {
   const classes = useStyles();
 
   return (
     <div className={classes.recipeCards}>
       {
         data.map((recipe) => (
-          <RecipeCard dat={recipe} key={recipe.id}/>
+          <RecipeCard dat={recipe} key={recipe.id} openCard={openCard}/>
         ))
       }
 

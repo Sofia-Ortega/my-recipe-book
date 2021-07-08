@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc38363b-e04e-4e93-8a11-ad20c2073fae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainScreen/MainLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainScreen/MainLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainScreen/RecipeCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainScreen/RecipeCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainScreen/RecipeCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainScreen/RecipeCards.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +46,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sofia\WebstormProjects\my-recipe-book\data" />
       <recent name="C:\Users\sofia\WebstormProjects\my-recipe-book" />
       <recent name="C:\Users\sofia\WebstormProjects\my-recipe-book\src\components\MainScreen\AppBar" />
     </key>
@@ -63,7 +64,7 @@
       <workItem from="1625616250274" duration="875000" />
       <workItem from="1625617144911" duration="6648000" />
       <workItem from="1625681199217" duration="20000" />
-      <workItem from="1625718418950" duration="1122000" />
+      <workItem from="1625718418950" duration="1786000" />
     </task>
     <servers />
   </component>

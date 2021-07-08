@@ -2,7 +2,7 @@
 
 // Import parts of electron to use
 
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path')
 const url = require('url')
 
@@ -61,6 +61,16 @@ function createWindow() {
     mainWindow = null;
   });
 }
+
+//..........................Receive react msg.....................
+ipcMain.on("OPEN-CARD", (event, id) => {
+  console.log("Open card w this id:", id)
+})
+
+
+
+
+//..................................................................
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

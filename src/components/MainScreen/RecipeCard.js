@@ -24,8 +24,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RecipeCard({dat}) {
+export default function RecipeCard({dat, openCard}) {
   const classes = useStyles();
+
+  function handleClick() {
+    openCard(dat.id)
+  }
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -41,7 +45,7 @@ export default function RecipeCard({dat}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Open</Button>
+        <Button size="small" onClick={handleClick}>Open</Button>
       </CardActions>
     </Card>
   );

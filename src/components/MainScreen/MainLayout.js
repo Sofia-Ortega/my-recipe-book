@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { ipcRenderer } from "electron";
 import Button from '@material-ui/core/Button';
 import AppBarLayout from "./AppBar/AppBarLayout.js" ;
 import data from '../../../data.json'
@@ -7,7 +8,14 @@ import RecipeCards from "./RecipeCards";
 
 export default class MainLayout extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.openCard = this.openCard.bind(this);
+  }
+
+  openCard(id) {
+    console.log(id);
+    ipcRenderer.send('OPEN-CARD', id)
+
   }
 
   render() {
@@ -28,7 +36,7 @@ export default class MainLayout extends Component {
         <div>
           <AppBarLayout/>
         </div>
-        <RecipeCards data={data.data} />
+        <RecipeCards data={data.data} openCard={this.openCard}/>
         <div style={addButton}>
           <Button variant="contained" color="primary" >
             Add
