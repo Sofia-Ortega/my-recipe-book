@@ -25,24 +25,6 @@ const useStyles = makeStyles((theme) => ({
 export default function RecipeCards({data}) {
   const classes = useStyles();
 
-
-  // return (
-  //   <div>
-  //     <div className={classes.root}>
-  //       <Grid container spacing={3}>
-  //         {
-  //           data.map((recipe) => (
-  //             <Grid item xs={3}>
-  //               <RecipeCard dat={recipe} key={recipe.id}/>
-  //             </Grid>
-  //           ))
-  //         }
-  //       </Grid>
-  //     </div>
-  //   </div>
-  //
-  // )
-
   return (
     <div className={classes.recipeCards}>
       {

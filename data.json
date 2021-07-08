@@ -1,0 +1,61 @@
+{
+  "data": [
+    {
+      "title": "Picadillo",
+      "description": "Meat and Vegetables",
+      "type": "Dinner",
+      "id": 1
+    },
+    {
+      "title": "Chocolate Cake",
+      "description": "Pure yumminess",
+      "type": "Dessert",
+      "id": 2
+    },
+    {
+      "title": "Scrambled Eggs",
+      "description": "A perfect start to the day",
+      "type": "Breakfast",
+      "id": 3
+    },
+    {
+      "title": "Crock Pot Roast",
+      "description": "QUick and easy meal",
+      "type": "Dinner",
+      "id": 4,
+      "ingredients": [
+        {
+          "quantity": "1",
+          "name": " beef roast",
+          "type": "Meat"
+        },
+        {
+          "quantity": "1 package",
+          "name": "brown gravy mix",
+          "type": "Baking"
+        },
+        {
+          "quantity": "1 package",
+          "name": "dried Italian salad dressing mix",
+          "type": "Condiments"
+        },
+        {
+          "quantity": "1 package",
+          "name": "dry ranch dressing mix",
+          "type": "Condiments"
+        },
+        {
+          "quantity": "1/2 cup",
+          "name": "water",
+          "type": "Drinks"
+        }
+      ],
+      "steps": [
+        "Place beef roast in crock pot.",
+        "Mix the dried mixes together in a bowl and sprinkle over the roast.",
+        "Pour the water around the roast.",
+        "Cook on low for 7-9 hours."
+      ]
+    }
+  ]
+}

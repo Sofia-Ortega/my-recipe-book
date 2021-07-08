@@ -1,42 +1,45 @@
-import React from 'react';
-
-import { makeStyles } from '@material-ui/core/styles'
+import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
-
 import AppBarLayout from "./AppBar/AppBarLayout.js" ;
-import data from '../../assets/data.json'
+import data from '../../../data.json'
 import RecipeCards from "./RecipeCards";
 
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: "#f5f5f5",
-    height: "100vh"
-  },
-  button: {
-    display: "table",
-    margin: "0 auto",
-    padding: 0
+export default class MainLayout extends Component {
+  constructor(props) {
+    super(props)
   }
-}));
+
+  render() {
+    const mainLayoutStyle = {
+      backgroundColor: "#f5f5f5",
+      height: "100vh"
+    }
+
+    const addButton = {
+      display: "table",
+      margin: "0 auto",
+      padding: 0
+    }
 
 
-export default function MainLayout () {
-  const classes = useStyles()
-
-  return (
-    <div className={classes.root}>
-      <div>
-        <AppBarLayout/>
+    return(
+      <div style={mainLayoutStyle}>
+        <div>
+          <AppBarLayout/>
+        </div>
+        <RecipeCards data={data.data} />
+        <div style={addButton}>
+          <Button variant="contained" color="primary" >
+            Add
+          </Button>
+        </div>
       </div>
-      <RecipeCards data={data.data} />
-      <div className={classes.button}>
-        <Button variant="contained" color="primary" >
-          Add
-        </Button>
-      </div>
-    </div>
     )
+  }
+
+
+
 
 };
 
