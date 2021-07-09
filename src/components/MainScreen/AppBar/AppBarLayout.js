@@ -14,13 +14,11 @@ export default function AppBarLayout() {
     margin: "0 0 0 10px",
     padding: "0 2px",
     textAlign: "center",
-    flex: 5,
     fontSize: "30px",
     color: "#02005D",
     fontFamily: "Pacifico",
     fontWeight: "400",
     textDecoration: "underline",
-    textDecorationStyle: ""
     // borderBottom: "3px solid #02005D"
 
 

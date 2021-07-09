@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../assets/css/App.css';
-import Test from "../components/Test"
 import MainLayout from '../components/MainScreen/MainLayout';
 import RecipeLayout from "../components/Recipe/RecipeLayout";
 import {HashRouter, Route} from "react-router-dom";
@@ -9,7 +8,10 @@ import {HashRouter, Route} from "react-router-dom";
 //ROUTER PAGE
 function App() {
 
-  const [cardDat, setCardDat] = useState({});
+  const [cardDat, setCardDat] = useState(
+    {
+      "title": "Recipe Title",
+    });
 
   function openCardTest(dat) {
    console.log("up here in app: ", dat);
@@ -35,9 +37,6 @@ function App() {
           <RecipeLayout{...props} cardDat={cardDat}/>
         )}
       />
-      {/*<Route exact path="/" component={MainLayout} openCard={openCardTest}></Route>*/}
-      <Route exact path="/test" component={Test} ></Route>
-      {/*<Route exact path="/recipe" component={RecipeLayout}></Route>*/}
     </HashRouter>
   );
 
