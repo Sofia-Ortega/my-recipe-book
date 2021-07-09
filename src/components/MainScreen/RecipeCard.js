@@ -29,7 +29,7 @@ export default function RecipeCard({dat, openCard}) {
   const classes = useStyles();
 
   function handleClick() {
-    openCard(dat.id)
+    openCard(dat)
   }
 
   return (
@@ -46,7 +46,9 @@ export default function RecipeCard({dat, openCard}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={handleClick}>Open</Button>
+        <Link to="/recipe">
+          <Button size="small" onClick={handleClick}>Open</Button>
+        </Link>
       </CardActions>
     </Card>
   );

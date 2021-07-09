@@ -14,9 +14,9 @@ export default class MainLayout extends Component {
   }
 
   openCard(id) {
-    console.log(id);
+    // console.log(id);
     ipcRenderer.send('OPEN-CARD', id)
-
+    this.props.openCardTest(id);
   }
 
   render() {
@@ -39,20 +39,14 @@ export default class MainLayout extends Component {
         </div>
         <RecipeCards data={data.data} openCard={this.openCard}/>
         <div style={addButton}>
-          <Link to="/expandRecipe">
-            <button>Expand Recipe</button>
-          </Link>
           <Button variant="contained" color="primary" >
             Add
           </Button>
         </div>
+        <Link to="/test">
+          <button>hahahah</button>
+        </Link>
       </div>
     )
   }
-
-
-
-
 };
-
-

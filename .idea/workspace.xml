@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="dc38363b-e04e-4e93-8a11-ad20c2073fae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ExpandRecipe/ExpandRecipeLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Recipe/RecipeLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainScreen/MainLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainScreen/MainLayout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainScreen/RecipeCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainScreen/RecipeCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.js" afterDir="false" />
@@ -42,7 +45,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="com.maddyhome.idea.vim.ui.VimEmulationConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -66,7 +69,9 @@
       <workItem from="1625616250274" duration="875000" />
       <workItem from="1625617144911" duration="6648000" />
       <workItem from="1625681199217" duration="20000" />
-      <workItem from="1625718418950" duration="2680000" />
+      <workItem from="1625718418950" duration="3449000" />
+      <workItem from="1625722465480" duration="145000" />
+      <workItem from="1625782512191" duration="3914000" />
     </task>
     <servers />
   </component>
