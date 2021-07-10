@@ -12,7 +12,17 @@ function App() {
     {
       "title": "Crock Pot Salad",
       "description": "A Quick an easy meal. Delicious to the end." +
-          "A beautiful tribute. Your late for world one zero pm I am dead on schedule \n"
+          "A beautiful tribute. Your late for world one zero pm I am dead on schedule \n",
+      "ingredients": [
+        {
+          "quantity": "1",
+          "name": " beef roast",
+        },
+        {
+          "quantity": "1 package",
+          "name": "brown gravy mix",
+        }
+      ]
     });
 
   function openCardTest(dat) {

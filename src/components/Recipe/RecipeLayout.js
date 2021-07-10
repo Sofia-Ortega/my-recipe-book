@@ -2,6 +2,7 @@ import React from 'react'
 import TitleBar from "./TitleBar";
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from "react-router-dom";
+import Ingredients from "./Ingredients";
 
 const useStyles = makeStyles({
   layoutStyle: {
@@ -13,6 +14,11 @@ const useStyles = makeStyles({
     fontStyle: "italic",
     margin: "0 215px",
     color: "#5b5b5b"
+  },
+  headings: {
+    fontFamily: "Bodoni MT",
+    fontSize: "28px",
+    marginLeft: "15px"
   }
 
 });
@@ -27,13 +33,23 @@ export default function RecipeLayout({cardDat}) {
         {cardDat.description}
       </div>
       <div>
-        Ingredients:
+        <div className={classes.headings}>
+          Ingredients:
+        </div>
+        <Ingredients ingrList={cardDat.ingredients}/>
       </div>
       <div>
-        Directions:
+        <div className={classes.headings}>
+          Directions:
+        </div>
       </div>
       <div>
-        Notes: {cardDat.notes}
+        <div className={classes.headings}>
+          Notes:
+       </div>
+        <div>
+          {cardDat.notes}
+        </div>
       </div>
       <Link to="/">
         <button>Go to main page</button>

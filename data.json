@@ -27,27 +27,27 @@
         {
           "quantity": "1",
           "name": " beef roast",
-          "type": "Meat"
+          "id": 1
         },
         {
           "quantity": "1 package",
           "name": "brown gravy mix",
-          "type": "Baking"
+          "id": 2
         },
         {
           "quantity": "1 package",
           "name": "dried Italian salad dressing mix",
-          "type": "Condiments"
+          "id": 3
         },
         {
           "quantity": "1 package",
           "name": "dry ranch dressing mix",
-          "type": "Condiments"
+          "id": 4
         },
         {
           "quantity": "1/2 cup",
           "name": "water",
-          "type": "Drinks"
+          "id": 5
         }
       ],
       "steps": [
