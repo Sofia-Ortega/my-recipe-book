@@ -11,14 +11,14 @@ export default function AppBarLayout() {
 
   const logoStyle = {
     width: "33vw",
-    margin: "0 0 0 10px",
-    padding: "0 2px",
+    margin: "0",
+    padding: "0",
     textAlign: "center",
     fontSize: "30px",
     color: "#02005D",
     fontFamily: "Pacifico",
     fontWeight: "400",
-    textDecoration: "underline",
+
     // borderBottom: "3px solid #02005D"
 
 

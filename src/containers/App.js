@@ -10,7 +10,7 @@ function App() {
 
   const [cardDat, setCardDat] = useState(
     {
-      "title": "Recipe Title",
+      "title": "Crock Pot Salad",
     });
 
   function openCardTest(dat) {
