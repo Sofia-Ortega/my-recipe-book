@@ -5,11 +5,14 @@ import {Link} from "react-router-dom";
 
 const useStyles = makeStyles({
   layoutStyle: {
-    //backgroundColor: "#f5f5f5",
     height: "100vh"
   },
-  recipeTitle: {
-
+  description: {
+    textAlign: "center",
+    fontSize: "16px",
+    fontStyle: "italic",
+    margin: "0 215px",
+    color: "#5b5b5b"
   }
 
 });
@@ -20,8 +23,8 @@ export default function RecipeLayout({cardDat}) {
   return(
     <div className={classes.layoutStyle}>
       <TitleBar title={cardDat.title}/>
-      <div>
-        Description: {cardDat.description}
+      <div className={classes.description}>
+        {cardDat.description}
       </div>
       <div>
         Ingredients:

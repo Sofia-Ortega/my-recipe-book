@@ -9,18 +9,18 @@ const useStyles = makeStyles({
 
   },
   titleContainer: {
-    borderTop: "1px solid #02005D",
-    borderBottom: "1px solid #02005D",
-    padding: "30px 0",
+    borderTop: "2.5px solid black",
+    borderBottom: "2.5px solid black",
+    padding: "13px 0",
+    margin: "0 200px 25px 200px"
     // backgroundColor: "#fff"
   },
   title: {
-    fontFamily: "Comfortaa",
-    fontSize: "35px",
+    fontFamily: "Century Gothic",
+    fontSize: "40px",
     display: "table",
     margin: "0 auto",
     textTransform: "uppercase",
-    color: "#02005D",
 
   }
 })

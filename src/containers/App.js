@@ -11,6 +11,8 @@ function App() {
   const [cardDat, setCardDat] = useState(
     {
       "title": "Crock Pot Salad",
+      "description": "A Quick an easy meal. Delicious to the end." +
+          "A beautiful tribute. Your late for world one zero pm I am dead on schedule \n"
     });
 
   function openCardTest(dat) {
