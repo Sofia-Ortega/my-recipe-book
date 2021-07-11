@@ -4,26 +4,12 @@ import MainLayout from '../components/MainScreen/MainLayout';
 import RecipeLayout from "../components/Recipe/RecipeLayout";
 import {HashRouter, Route} from "react-router-dom";
 
+import test from "../../test.json"
 
 //ROUTER PAGE
 function App() {
 
-  const [cardDat, setCardDat] = useState(
-    {
-      "title": "Crock Pot Salad",
-      "description": "A Quick an easy meal. Delicious to the end." +
-          "A beautiful tribute. Your late for world one zero pm I am dead on schedule \n",
-      "ingredients": [
-        {
-          "quantity": "1",
-          "name": " beef roast",
-        },
-        {
-          "quantity": "1 package",
-          "name": "brown gravy mix",
-        }
-      ]
-    });
+  const [cardDat, setCardDat] = useState(test);
 
   function openCardTest(dat) {
    console.log("up here in app: ", dat);

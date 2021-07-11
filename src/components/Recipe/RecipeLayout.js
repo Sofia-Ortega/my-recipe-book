@@ -3,6 +3,8 @@ import TitleBar from "./TitleBar";
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from "react-router-dom";
 import Ingredients from "./Ingredients";
+import Directions from "./Directions";
+
 
 const useStyles = makeStyles({
   layoutStyle: {
@@ -42,6 +44,7 @@ export default function RecipeLayout({cardDat}) {
         <div className={classes.headings}>
           Directions:
         </div>
+        <Directions stepList={cardDat.steps}/>
       </div>
       <div>
         <div className={classes.headings}>

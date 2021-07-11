@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dc38363b-e04e-4e93-8a11-ad20c2073fae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainScreen/RecipeCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainScreen/RecipeCards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Recipe/Ingredient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Recipe/Ingredient.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Recipe/Ingredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Recipe/Ingredients.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Recipe/Direction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Recipe/Direction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Recipe/Directions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Recipe/Directions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Recipe/RecipeLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Recipe/RecipeLayout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.js" afterDir="false" />
     </list>

@@ -6,7 +6,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const useStyles = makeStyles(() => ({
   root: {
-    margin: "5px 0 5px 30px"
+    margin: "5px 0 5px 55px"
   }
 }))
 export default function Ingredient({ingredient}) {
