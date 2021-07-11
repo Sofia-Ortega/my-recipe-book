@@ -1,19 +1,20 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  root: {
-    paddingTop: "20px"
-  },
-  logo: {
 
+
+const useStyles = makeStyles({
+
+  root: {
+    paddingTop: "20px",
+    color: "#02005D"
   },
   titleContainer: {
-    borderTop: "2.5px solid black",
-    borderBottom: "2.5px solid black",
+    borderTop: "2.5px solid",
+    borderBottom: "2.5px solid ",
+    borderColor: "#02005D",
     padding: "13px 0",
     margin: "0 200px 25px 200px"
-    // backgroundColor: "#fff"
   },
   title: {
     fontFamily: "Century Gothic",
