@@ -2,6 +2,9 @@ import React from 'react'
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
+import InputField from "./InputField";
+import {Input} from "@material-ui/core";
+import IngredientInput from "./IngredientInput";
 
 const useStyles = makeStyles( {
   title: {
@@ -24,20 +27,14 @@ export default function AddLayout() {
       <div className={classes.title}>
         Add Recipe
       </div>
-      <div>
-        Recipe Title:
-      </div>
-      <div>
-       Description:
-      </div>
-      <div>
-        Type:
-      </div>
+        <InputField title={"Recipe Title"}/>
+        <InputField title={"Description"} />
+        <div>Drop down menu of type</div>
+
       <div>
         Ingredients:
+        <IngredientInput />
         <br />
-        ----- quantity
-        ----- name
       </div>
       <div>
         Notes: (optional)
