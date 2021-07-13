@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../assets/css/App.css';
 import MainLayout from '../components/MainScreen/MainLayout';
 import RecipeLayout from "../components/Recipe/RecipeLayout";
+import AddLayout from "../components/AddRecipe/AddLayout";
 import {HashRouter, Route} from "react-router-dom";
 
 import test from "../../test.json"
@@ -35,6 +36,7 @@ function App() {
           <RecipeLayout{...props} cardDat={cardDat}/>
         )}
       />
+      <Route exact path="/add" component={AddLayout} />
     </HashRouter>
   );
 
