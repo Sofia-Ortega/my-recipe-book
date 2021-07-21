@@ -4,10 +4,7 @@
     <list default="true" id="dc38363b-e04e-4e93-8a11-ad20c2073fae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AddRecipe/AddLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddRecipe/AddLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddRecipe/IngredientInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddRecipe/IngrDirInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddRecipe/InputField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddRecipe/InputField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddRecipe/TitleInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddRecipe/TitleInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainScreen/MainLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainScreen/MainLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddRecipe/IngrDirInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddRecipe/IngrDirInput.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +22,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1uryCMpqSOyH9ghyVaGKbkhjDm5" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,7 +33,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../React-Todo-List" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,6 +46,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sofia\WebstormProjects\my-recipe-book\src\components\AddRecipe\Ingredients" />
       <recent name="C:\Users\sofia\WebstormProjects\my-recipe-book\src\components" />
       <recent name="C:\Users\sofia\WebstormProjects\my-recipe-book\data" />
       <recent name="C:\Users\sofia\WebstormProjects\my-recipe-book" />
@@ -72,7 +72,7 @@
       <workItem from="1625871015089" duration="11874000" />
       <workItem from="1626037015826" duration="28000" />
       <workItem from="1626147881014" duration="4095000" />
-      <workItem from="1626896309773" duration="6677000" />
+      <workItem from="1626896309773" duration="9627000" />
     </task>
     <servers />
   </component>

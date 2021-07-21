@@ -35,7 +35,7 @@ const useStyles = makeStyles( (theme) =>({
 }));
 
 function getSteps() {
-  return ['Title', 'Ingredients & Directions', 'Final notes & review'];
+  return ['Title', 'Ingredients & Directions', 'Final notes', 'Review'];
 }
 
 function getStepContent(stepIndex) {
@@ -46,6 +46,8 @@ function getStepContent(stepIndex) {
       return <IngrDirInput />;
     case 2:
       return <FinalInfoInput />;
+    case 3:
+      return "Review"
     default:
       return 'Unknown stepIndex';
   }
@@ -59,8 +61,6 @@ export default function AddLayout() {
 
   const handleNext = () => {
 
-    console.log("active step:", activeStep);
-    console.log("steps.length: ", steps.length);
     if(activeStep + 1 === steps.length) {
       console.log("Add");
     }
