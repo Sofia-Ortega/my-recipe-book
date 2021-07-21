@@ -38,7 +38,7 @@ export default class MainLayout extends Component {
         <RecipeCards data={data.data} openCard={this.openCard}/>
         <div style={addButton}>
           <Link to="/add">
-            <Button variant="contained" color="primary" >
+            <Button variant="contained" color="secondary" >
               Add
             </Button>
           </Link>

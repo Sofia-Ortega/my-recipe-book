@@ -7,13 +7,14 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
 
-import InputField from "./InputField";
-import {Input} from "@material-ui/core";
-import IngredientInput from "./IngredientInput";
+import TitleInput from "./TitleInput";
+import IngrDirInput from "./IngrDirInput";
+import FinalInfoInput from "./FinalInfoInput";
 
 const useStyles = makeStyles( (theme) =>({
   root: {
-    width: '100%',
+    //width: '100%',
+    margin: "30px"
   },
   backButton: {
     marginRight: theme.spacing(1),
@@ -24,9 +25,7 @@ const useStyles = makeStyles( (theme) =>({
   },
   title: {
     fontSize: "40px",
-    //borderBottom: "1px solid black",
     margin: "0 200px",
-    padding: "30px 0 15px 0",
     textAlign: "center",
   },
   center: {
@@ -36,17 +35,17 @@ const useStyles = makeStyles( (theme) =>({
 }));
 
 function getSteps() {
-  return ['Select master blaster campaign settings', 'Create an ad group', 'Create an ad'];
+  return ['Title', 'Ingredients & Directions', 'Final notes & review'];
 }
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return 'Select campaign settings...';
+      return <TitleInput />;
     case 1:
-      return 'What is an ad group anyways?';
+      return <IngrDirInput />;
     case 2:
-      return 'This is the bit I really care about!';
+      return <FinalInfoInput />;
     default:
       return 'Unknown stepIndex';
   }
@@ -59,7 +58,14 @@ export default function AddLayout() {
   const steps = getSteps();
 
   const handleNext = () => {
+
+    console.log("active step:", activeStep);
+    console.log("steps.length: ", steps.length);
+    if(activeStep + 1 === steps.length) {
+      console.log("Add");
+    }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+
   };
 
   const handleBack = () => {
@@ -89,7 +95,7 @@ export default function AddLayout() {
           </div>
         ) : (
           <div>
-            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+            <div className={classes.instructions}>{getStepContent(activeStep)}</div>
             <div>
               <Button
                 disabled={activeStep === 0}
@@ -98,18 +104,18 @@ export default function AddLayout() {
               >
                 Back
               </Button>
-              <Button variant="contained" color="primary" onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+              <Button variant="contained" color="secondary" onClick={handleNext}>
+                {activeStep === steps.length - 1 ? 'Add' : 'Next'}
               </Button>
             </div>
           </div>
         )}
       </div>
-       <Link to="/">
-         <Button variant="contained" color="primary" className={classes.center}>
-           Main Page
-         </Button>
-       </Link>
+      {/* <Link to="/">*/}
+      {/*   <Button variant="outlined" color="primary" className={classes.center}>*/}
+      {/*     Main Page*/}
+      {/*   </Button>*/}
+      {/* </Link>*/}
     </div>
   )
 }

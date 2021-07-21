@@ -4,6 +4,10 @@
     <list default="true" id="dc38363b-e04e-4e93-8a11-ad20c2073fae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AddRecipe/AddLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddRecipe/AddLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddRecipe/IngredientInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddRecipe/IngrDirInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddRecipe/InputField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddRecipe/InputField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddRecipe/TitleInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddRecipe/TitleInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainScreen/MainLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainScreen/MainLayout.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +72,7 @@
       <workItem from="1625871015089" duration="11874000" />
       <workItem from="1626037015826" duration="28000" />
       <workItem from="1626147881014" duration="4095000" />
-      <workItem from="1626896309773" duration="1014000" />
+      <workItem from="1626896309773" duration="6677000" />
     </task>
     <servers />
   </component>
