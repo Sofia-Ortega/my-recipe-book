@@ -41,7 +41,8 @@ function getSteps() {
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return <TitleInput />;
+      return <IngrDirInput  />;
+      //return <TitleInput />;
     case 1:
       return <IngrDirInput />;
     case 2:
