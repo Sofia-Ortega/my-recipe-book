@@ -7,8 +7,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
 
-import TitleInput from "./TitleInput";
-import IngrDirInput from "./IngrDirInput";
+import IngrDirInput from "./IngrAndDir/IngrDirInput";
 import FinalInfoInput from "./FinalInfoInput";
 
 const useStyles = makeStyles( (theme) =>({

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import TextField from '@material-ui/core/TextField';
-import Ingredients from "./Ingredients"
+import Items from "./mapItems/Items";
 import Button from "@material-ui/core/Button";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import Grid from "@material-ui/core/Grid"
@@ -58,11 +58,9 @@ export default function IngredientInput() {
         Ingredients:
       </div>
       <div className={classes.body}>
-        <Ingredients  delIngr={delIngr} ingrList={ingrList}  />
+        <Items delItem={delIngr} itemList={ingrList} numbered={true} />
         <Grid container spacing={1} alignItems="flex-end">
-          <Grid item>
 
-          </Grid>
           <Grid item>
             <form onSubmit={addIngr} >
               <TextField
