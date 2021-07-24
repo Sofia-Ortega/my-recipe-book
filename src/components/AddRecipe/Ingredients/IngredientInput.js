@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import TextField from '@material-ui/core/TextField';
 import Ingredients from "./Ingredients"
 import Button from "@material-ui/core/Button";
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import Grid from "@material-ui/core/Grid"
 import {makeStyles} from "@material-ui/core/styles";
 
 
@@ -11,6 +13,12 @@ const useStyles = makeStyles( (theme) =>({
     fontSize: "28px",
     marginLeft: "15px",
   },
+  addBtn: {
+    color: "#4d0069"
+  },
+  body: {
+    marginLeft: "30px"
+  }
 }))
 
 export default function IngredientInput() {
@@ -26,17 +34,16 @@ export default function IngredientInput() {
     setValue(event.target.value);
   }
 
-  const logAll = () => {
-    console.log(ingrList);
-  }
-
   function addIngr() {
-    setValue('');
+    if(value === '') return;
     let data = {
       'name': value,
       'id': ingrList.length
     }
+
+    //update and rest
     setIngrList([...ingrList, data])
+    setValue('');
 
   }
 
@@ -50,23 +57,28 @@ export default function IngredientInput() {
       <div className={classes.headings}>
         Ingredients:
       </div>
-      <Ingredients  delIngr={delIngr} ingrList={ingrList}  />
+      <div className={classes.body}>
+        <Ingredients  delIngr={delIngr} ingrList={ingrList}  />
+        <Grid container spacing={1} alignItems="flex-end">
+          <Grid item>
 
-        <TextField
-          id="outlined-basic"
-          label="Add Ingredient"
-          variant="standard"
-          value={value}
-          onChange={handleChange}
-        />
-         <Button variant="outlined" color="primary" size="small" onClick={addIngr}>
-           Add
-         </Button>
-      <div>
-        <Button variant="contained" color="primary" onClick={logAll}>Log all</Button>
+          </Grid>
+          <Grid item>
+            <form onSubmit={addIngr} >
+              <TextField
+                id="outlined-basic"
+                label="Add Ingredient"
+                variant="standard"
+                value={value}
+                onChange={handleChange}
+              />
+            </form>
+          </Grid>
+          <Grid item>
+            <AddCircleOutlineIcon className={classes.addBtn} onClick={addIngr}/>
+          </Grid>
+        </Grid>
       </div>
-
-
     </div>
   )
 }

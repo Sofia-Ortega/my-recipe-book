@@ -68,9 +68,6 @@ function createWindow() {
 }
 
 //..........................Receive react msg.....................
-ipcMain.on("OPEN-CARD", (event, id) => {
-  console.log("Open card w this id:", id)
-})
 
 
 
