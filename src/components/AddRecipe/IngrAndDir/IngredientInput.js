@@ -6,13 +6,6 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import Grid from "@material-ui/core/Grid"
 import {makeStyles} from "@material-ui/core/styles";
 
-/*
-*
-*
-* Fixme: Number Directions
-*
-*
-*  */
 
 const useStyles = makeStyles( (theme) =>({
   headings: {
@@ -24,7 +17,8 @@ const useStyles = makeStyles( (theme) =>({
     color: "#4d0069"
   },
   body: {
-    marginLeft: "30px"
+    marginLeft: "30px",
+    // backgroundColor: "green"
   }
 }))
 

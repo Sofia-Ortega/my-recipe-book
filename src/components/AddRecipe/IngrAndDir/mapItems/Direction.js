@@ -7,11 +7,15 @@ import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles( (theme) =>({
   root: {
-    margin: "10px 0"
+    margin: "10px 0 10px 0",
+    // backgroundColor: "violet"
   },
   icon: {
     padding: 0,
     margin: 0
+  },
+  name: {
+    paddingLeft: "15px"
   }
 
 }))
@@ -32,7 +36,7 @@ export default function Direction({delItem, item, index}) {
           </IconButton>
         </Grid>
         <Grid item>
-          <div>
+          <div className={c.name} >
             <li>{item.name}</li>
           </div>
         </Grid>

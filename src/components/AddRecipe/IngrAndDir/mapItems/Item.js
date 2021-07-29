@@ -7,7 +7,8 @@ import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles( (theme) =>({
   root: {
-    margin: "10px 0"
+    margin: "10px 0",
+    // backgroundColor: "white"
   },
   icon: {
     padding: 0,

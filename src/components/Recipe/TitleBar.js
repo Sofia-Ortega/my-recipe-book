@@ -18,6 +18,7 @@ const useStyles = makeStyles({
   },
   title: {
     fontFamily: "Century Gothic",
+    textAlign: "center",
     fontSize: "40px",
     display: "table",
     margin: "0 auto",
