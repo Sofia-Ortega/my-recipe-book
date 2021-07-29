@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import TextField from '@material-ui/core/TextField';
-import Items from "./mapItems/Items"
+import Directions from "./mapItems/Directions"
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import Grid from "@material-ui/core/Grid"
 import {makeStyles} from "@material-ui/core/styles";
@@ -24,8 +24,8 @@ export default function DirectionInput() {
 
   const [value, setValue] = useState("")
   const [dirList, setDirList] = useState([
-    {'name': "1: cook chicken", 'id': 0},
-    {'name': '2: eat cheese', 'id': 1},
+    {'name': "cook chicken", 'id': 0},
+    {'name': 'eat cheese', 'id': 1},
   ]);
 
   const handleChange = (event) => {
@@ -34,7 +34,7 @@ export default function DirectionInput() {
 
   function addDir() {
     if(value === '') return;
-    let name = (dirList.length + 1) + ": " + value;
+    let name = value;
     let data = {
       'name': name,
       'id': dirList.length
@@ -57,7 +57,7 @@ export default function DirectionInput() {
         Directions:
       </div>
       <div className={classes.body}>
-        <Items  delItem={delDir} itemList={dirList} numbered={true} />
+        <Directions  delItem={delDir} itemList={dirList} />
         <Grid container spacing={1} alignItems="flex-end">
           <Grid item>
             <form onSubmit={addDir} >

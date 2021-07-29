@@ -15,7 +15,7 @@ const useStyles = makeStyles( (theme) =>({
   }
 
 }))
-export default function Item({delItem, item}) {
+export default function Direction({delItem, item, index}) {
   const c = useStyles();
 
   const handleClick = () => {
@@ -27,12 +27,14 @@ export default function Item({delItem, item}) {
 
       <Grid container spacing={1} alignItems="flex-end">
         <Grid item>
-           <IconButton aria-label="delete" onClick={handleClick} className={c.icon}>
-             <DeleteIcon fontSize="small" />
-           </IconButton>
+          <IconButton aria-label="delete" onClick={handleClick} className={c.icon}>
+            <DeleteIcon fontSize="small" />
+          </IconButton>
         </Grid>
         <Grid item>
-          {item.name} -- {item.id}
+          <div>
+            <li>{item.name}</li>
+          </div>
         </Grid>
       </Grid>
     </div>
