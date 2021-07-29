@@ -19,7 +19,7 @@ const useStyles = makeStyles( (theme) =>({
   }
 
 }))
-export default function Direction({delItem, item, index}) {
+export default function Direction({delItem, item }) {
   const c = useStyles();
 
   const handleClick = () => {

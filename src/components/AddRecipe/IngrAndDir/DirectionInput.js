@@ -28,6 +28,7 @@ export default function DirectionInput() {
     {'name': "cook chicken", 'id': 0},
     {'name': 'eat cheese', 'id': 1},
   ]);
+  const [uniqueId, setUniqueId] = useState([2])
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -35,10 +36,10 @@ export default function DirectionInput() {
 
   function addDir() {
     if(value === '') return;
-    let name = value;
+
     let data = {
-      'name': name,
-      'id': dirList.length
+      'name': value,
+      'id': dirList.length + value.length
     }
 
     //update and rest
@@ -49,6 +50,7 @@ export default function DirectionInput() {
 
   const delDir = (id) => {
     setDirList(dirList.filter((dir) => dir.id !== id))
+
   }
 
 

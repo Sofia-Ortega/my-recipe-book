@@ -4,10 +4,8 @@ import Item from "./Item"
 export default function Items({ delItem, itemList}) {
   return (
     <div>
-      {itemList.map((item) => (
-        <div>
-          <Item delItem={delItem} item={item} key={item.id + 4} />
-        </div>
+      {itemList.map((item, index) => (
+        <Item delItem={delItem} item={item} key={index} />
       ))}
     </div>
     )

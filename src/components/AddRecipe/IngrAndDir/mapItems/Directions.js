@@ -5,7 +5,7 @@ export default function Directions({ delItem, itemList }) {
   return (
     <ol>
       {itemList.map((item, index) => (
-        <Direction delItem={delItem} item={item} key={item.id} index={index}/>
+        <Direction delItem={delItem} item={item} key={index} />
       ))}
     </ol>
   )
