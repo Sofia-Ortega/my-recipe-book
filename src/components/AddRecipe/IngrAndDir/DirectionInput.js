@@ -20,39 +20,19 @@ const useStyles = makeStyles( (theme) =>({
   }
 }))
 
-export default function DirectionInput() {
+export default function DirectionInput({addDir, delDir, dirList}) {
   const classes = useStyles();
-
-  const [value, setValue] = useState("")
-  const [dirList, setDirList] = useState([
-    {'name': "cook chicken", 'id': 0},
-    {'name': 'eat cheese', 'id': 1},
-  ]);
-  const [uniqueId, setUniqueId] = useState([2])
+  const [val, setVal] = useState("")
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setVal(event.target.value);
   }
 
-  function addDir() {
-    if(value === '') return;
-
-    let data = {
-      'name': value,
-      'id': dirList.length + value.length
-    }
-
-    //update and rest
-    setDirList([...dirList, data])
-    setValue('');
-
+  const handleAdd = () => {
+    let send = val;
+    addDir(send);
+    setVal('');
   }
-
-  const delDir = (id) => {
-    setDirList(dirList.filter((dir) => dir.id !== id))
-
-  }
-
 
   return (
     <div>
@@ -63,18 +43,18 @@ export default function DirectionInput() {
         <Directions  delItem={delDir} itemList={dirList} />
         <Grid container spacing={1} alignItems="flex-end">
           <Grid item>
-            <form onSubmit={addDir} >
+            <form onSubmit={handleAdd} >
               <TextField
                 id="outlined-basic"
                 label="Add Direction"
                 variant="standard"
-                value={value}
+                value={val}
                 onChange={handleChange}
               />
             </form>
           </Grid>
           <Grid item>
-            <AddCircleOutlineIcon className={classes.addBtn} onClick={addDir}/>
+            <AddCircleOutlineIcon className={classes.addBtn} onClick={handleAdd}/>
           </Grid>
         </Grid>
       </div>

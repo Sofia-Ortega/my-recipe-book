@@ -39,7 +39,7 @@ export default function IngredientInput() {
     if(value === '') return;
     let data = {
       'name': value,
-      'id': ingrList.length
+      'id': ingrList.length + value.length
     }
 
     //update and rest
