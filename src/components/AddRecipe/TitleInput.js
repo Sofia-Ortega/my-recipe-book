@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import InputField from "./InputField";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
+import NextButton from "./NextButton";
 
-export default function TitleInput() {
+
+export default function TitleInput({handleNext}) {
   const [title, getTitle] = useState("");
   const [description, getDescription] = useState("");
 
@@ -20,6 +20,7 @@ export default function TitleInput() {
    <div>
     <InputField label={"title"} handleData={handleData} value={title}/>
     <InputField label={"description"} handleData={handleData} value={description}/>
+    <NextButton isDisabled={true} handleNext={handleNext}/>
    </div>
  )
 }

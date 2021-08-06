@@ -38,20 +38,7 @@ function getSteps() {
   return ['Title', 'Ingredients & Directions', 'Final notes', 'Review'];
 }
 
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return <TitleInput />;
-    case 1:
-      return <IngrDirInput />;
-    case 2:
-      return <FinalInfoInput />;
-    case 3:
-      return "Review"
-    default:
-      return 'Unknown stepIndex';
-  }
-}
+
 
 
 export default function AddLayout() {
@@ -59,6 +46,24 @@ export default function AddLayout() {
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
+  const test = () => {
+    console.log("Test was a success")
+  }
+
+  function getStepContent(stepIndex) {
+    switch (stepIndex) {
+      case 0:
+        return <TitleInput handleNext={handleNext}/>;
+      case 1:
+        return <IngrDirInput />;
+      case 2:
+        return <FinalInfoInput />;
+      case 3:
+        return "Review"
+      default:
+        return 'Unknown stepIndex';
+    }
+  }
   const handleNext = () => {
 
     if(activeStep + 1 === steps.length) {
