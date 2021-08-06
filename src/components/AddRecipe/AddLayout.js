@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import IngrDirInput from "./IngrAndDir/IngrDirInput";
 import FinalInfoInput from "./FinalInfoInput";
 import TitleInput from "./TitleInput";
+import Review from "./Review"
 
 const useStyles = makeStyles( (theme) =>({
   root: {
@@ -59,7 +60,7 @@ export default function AddLayout() {
       case 2:
         return <FinalInfoInput handleNext={handleNext} handleBack={handleBack} />;
       case 3:
-        return "Review"
+        return <Review handleNext={handleNext} handleBack={handleBack} />;
       default:
         return 'Unknown stepIndex';
     }
@@ -99,21 +100,8 @@ export default function AddLayout() {
             <Button onClick={handleReset}>Reset</Button>
           </div>
         ) : (
-          <div>
-            <div className={classes.instructions}>{getStepContent(activeStep)}</div>
-            <div>
-              <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                className={classes.backButton}
-              >
-                Back
-              </Button>
-              <Button variant="contained" color="secondary" onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Add' : 'Next'}
-              </Button>
-            </div>
-          </div>
+          <div className={classes.instructions}>{getStepContent(activeStep)}</div>
+
         )}
       </div>
        <Link to="/">

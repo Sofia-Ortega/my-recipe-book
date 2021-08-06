@@ -1,7 +1,9 @@
 import React from 'react'
 import Button from "@material-ui/core/Button";
 
-export default function NextButton({isDisabled, handleNext, handleBack}) {
+export default function NextButton({isDisabled, handleNext, handleBack, label}) {
+  const nextLabel = label ? "Add" : "Next";
+
   const handleClick = () => {
     console.log("next click");
     handleNext();
@@ -16,7 +18,7 @@ export default function NextButton({isDisabled, handleNext, handleBack}) {
         Back
       </Button>
       <Button variant="contained" color="secondary" onClick={handleClick}>
-        Next
+        {nextLabel}
       </Button>
     </div>
   )

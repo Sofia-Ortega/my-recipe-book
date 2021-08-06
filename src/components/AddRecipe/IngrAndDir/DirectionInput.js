@@ -6,6 +6,9 @@ import Grid from "@material-ui/core/Grid"
 import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles( (theme) =>({
+  root: {
+    margin: "20px 0px",
+  },
   headings: {
     fontFamily: "Bodoni MT",
     fontSize: "28px",
@@ -35,7 +38,7 @@ export default function DirectionInput({addDir, delDir, dirList}) {
   }
 
   return (
-    <div>
+    <div className={classes.root}>
       <div className={classes.headings}>
         Directions:
       </div>
