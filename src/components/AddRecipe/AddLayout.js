@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 
 import IngrDirInput from "./IngrAndDir/IngrDirInput";
 import FinalInfoInput from "./FinalInfoInput";
+import TitleInput from "./TitleInput";
 
 const useStyles = makeStyles( (theme) =>({
   root: {
@@ -40,8 +41,7 @@ function getSteps() {
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return <IngrDirInput  />;
-      //return <TitleInput />;
+      return <TitleInput />;
     case 1:
       return <IngrDirInput />;
     case 2:
@@ -111,11 +111,11 @@ export default function AddLayout() {
           </div>
         )}
       </div>
-      {/* <Link to="/">*/}
-      {/*   <Button variant="outlined" color="primary" className={classes.center}>*/}
-      {/*     Main Page*/}
-      {/*   </Button>*/}
-      {/* </Link>*/}
+       <Link to="/">
+         <Button variant="outlined" color="primary" className={classes.center}>
+           Main Page
+         </Button>
+       </Link>
     </div>
   )
 }

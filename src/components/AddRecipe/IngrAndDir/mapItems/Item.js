@@ -33,7 +33,7 @@ export default function Item({delItem, item}) {
            </IconButton>
         </Grid>
         <Grid item>
-          {item.name} -- {item.id}
+          {item.name}
         </Grid>
       </Grid>
     </div>
