@@ -25,36 +25,21 @@ const useStyles = makeStyles( (theme) =>({
   }
 }))
 
-export default function IngredientInput() {
+export default function IngredientInput({addIngr, delIngr, ingrList}) {
   const classes = useStyles();
 
   const [value, setValue] = useState("")
-  const [ingrList, setIngrList] = useState([
-    {'name': "chicken", 'id': 0},
-    {'name': 'cheese', 'id': 1},
-  ]);
+
 
   const handleChange = (event) => {
     setValue(event.target.value);
   }
 
-  function addIngr() {
-    if(value === '') return;
-    let data = {
-      'name': value,
-      'id': ingrList.length + value.length
-    }
-
-    //update and rest
-    setIngrList([...ingrList, data])
+  function handleAdd() {
+    addIngr(value);
     setValue('');
 
   }
-
-   const delIngr = (id) => {
-    setIngrList(ingrList.filter((ingr) => ingr.id !== id))
-  }
-
 
   return (
     <div className={classes.root}>
@@ -66,7 +51,7 @@ export default function IngredientInput() {
         <Grid container spacing={1} alignItems="flex-end">
 
           <Grid item>
-            <form onSubmit={addIngr} >
+            <form onSubmit={handleAdd} >
               <TextField
                 id="outlined-basic"
                 label="Add Ingredient"
@@ -77,7 +62,7 @@ export default function IngredientInput() {
             </form>
           </Grid>
           <Grid item>
-            <AddCircleOutlineIcon className={classes.addBtn} onClick={addIngr}/>
+            <AddCircleOutlineIcon className={classes.addBtn} onClick={handleAdd}/>
           </Grid>
         </Grid>
       </div>

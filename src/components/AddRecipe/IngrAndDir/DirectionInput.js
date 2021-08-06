@@ -32,8 +32,7 @@ export default function DirectionInput({addDir, delDir, dirList}) {
   }
 
   const handleAdd = () => {
-    let send = val;
-    addDir(send);
+    addDir(val);
     setVal('');
   }
 

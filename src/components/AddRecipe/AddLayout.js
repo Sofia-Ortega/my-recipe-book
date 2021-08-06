@@ -104,8 +104,8 @@ export default function AddLayout() {
 
         )}
       </div>
-       <Link to="/">
-         <Button variant="outlined" color="primary" className={classes.center}>
+       <Link to="/" className={classes.center}>
+         <Button variant="outlined" color="primary" >
            Main Page
          </Button>
        </Link>
