@@ -53,11 +53,11 @@ export default function AddLayout() {
   function getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return <TitleInput handleNext={handleNext}/>;
+        return <TitleInput handleNext={handleNext} handleBack={handleBack}/>;
       case 1:
-        return <IngrDirInput />;
+        return <IngrDirInput handleNext={handleNext} handleBack={handleBack}/>;
       case 2:
-        return <FinalInfoInput />;
+        return <FinalInfoInput handleNext={handleNext} handleBack={handleBack} />;
       case 3:
         return "Review"
       default:
