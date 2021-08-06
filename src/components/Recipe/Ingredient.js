@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
 export default function Ingredient({ingredient}) {
   const [checked, setChecked] = useState(false);
   const classes = useStyles();
-  const ingrTitle = ingredient.quantity + " of " + ingredient.name
+  const ingrTitle = ingredient.quantity ? ingredient.quantity + " of " + ingredient.name : ingredient.name;
 
   const handleChange = (event) => {
     setChecked(event.target.checked);

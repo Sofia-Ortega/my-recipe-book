@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import {ipcRenderer} from "electron";
 import InputField from "./InputField";
 import NextButton from "./NextButton";
 
@@ -16,11 +17,20 @@ export default function TitleInput({handleNext}) {
     }
   }
 
+  const nextClick = () => {
+    let data = {
+      "title": title,
+      "description": description,
+    }
+    ipcRenderer.send("sendAddData", data )
+    handleNext();
+  }
+
  return (
    <div>
     <InputField label={"title"} handleData={handleData} value={title}/>
     <InputField label={"description"} handleData={handleData} value={description}/>
-    <NextButton isDisabled={true} handleNext={handleNext}/>
+    <NextButton isDisabled={true} handleNext={nextClick}/>
    </div>
  )
 }

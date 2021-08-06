@@ -68,7 +68,9 @@ function createWindow() {
 }
 
 //..........................Receive react msg.....................
-
+ipcMain.on("sendAddData", (event, arg) => {
+  console.log(arg);
+})
 
 
 
