@@ -12,7 +12,7 @@ export default function FinalInfoInput({handleNext, handleBack}) {
 
   const nextClick = () => {
     let data = {
-      "notes": notes
+      notes: notes
     }
     ipcRenderer.send("sendAddData", data);
     handleNext();

@@ -19,8 +19,8 @@ export default function TitleInput({handleNext}) {
 
   const nextClick = () => {
     let data = {
-      "title": title,
-      "description": description,
+      title: title,
+      description: description,
     }
     ipcRenderer.send("sendAddData", data )
     handleNext();

@@ -69,44 +69,50 @@ function createWindow() {
 }
 
 //..........................Receive react msg.....................
-let data = {};
+let newData = {};
 ipcMain.on("sendAddData", (event, arg) => {
   if(arg.title) {
-    data.title = arg.title;
+    newData.title = arg.title;
   }
   if(arg.description) {
-    data.description = arg.description;
+    newData.description = arg.description;
   }
   if(arg.ingredients) {
-    data.ingredients = arg.ingredients;
+    newData.ingredients = arg.ingredients;
   }
   if(arg.steps) {
-    data.steps = [];
+    newData.steps = [];
     arg.steps.map((step, index) => {
-      data.steps.push(step.name);
+      newData.steps.push(step.name);
     });
   }
   if(arg.notes) {
-    data.notes = arg.notes;
+    newData.notes = arg.notes;
   }
 
 })
 
 ipcMain.on("submit", () => {
-  console.log("Submitting: ", data );
+  console.log("Submitting: ", newData );
 
-  // let dataPath = url.format({
-  //   protocol: 'file:',
-  //   pathname: path.join(__dirname, 'test.json'),
-  //   slashes: true
+  let json = JSON.stringify(newData);
+
+  fs.readFile('./dummy.json', function (err, oldData) {
+    var copy = JSON.parse(oldData)
+    copy.push(json);
+
+    fs.writeFile("./dummy.json", JSON.stringify(copy), (err) => {
+      if (err) return console.log(err);
+      console.log("The data was appended to the file")
+    })
+  })
+
+  // fs.writeFile("./dummy.json", json, function(err) {
+  //   if(err) {
+  //     return console.log(err);
+  //   }
+  //   console.log("The file was saved!");
   // });
-  let json = JSON.stringify(data);
-  fs.writeFile("./dummy.json", json, function(err) {
-    if(err) {
-      return console.log(err);
-    }
-    console.log("The file was saved!");
-  });
 })
 
 

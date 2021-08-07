@@ -17,8 +17,8 @@ export default function IngrDirInput({handleNext, handleBack}) {
 
   function nextClick() {
     let data = {
-      "ingredients": ingrList,
-      "steps": dirList
+      ingredients: ingrList,
+      steps: dirList
     }
     ipcRenderer.send("sendAddData", data);
     handleNext();
