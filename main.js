@@ -5,6 +5,7 @@
 const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path')
 const url = require('url')
+const fs = require('fs')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -68,8 +69,44 @@ function createWindow() {
 }
 
 //..........................Receive react msg.....................
+let data = {};
 ipcMain.on("sendAddData", (event, arg) => {
-  console.log(arg);
+  if(arg.title) {
+    data.title = arg.title;
+  }
+  if(arg.description) {
+    data.description = arg.description;
+  }
+  if(arg.ingredients) {
+    data.ingredients = arg.ingredients;
+  }
+  if(arg.steps) {
+    data.steps = [];
+    arg.steps.map((step, index) => {
+      data.steps.push(step.name);
+    });
+  }
+  if(arg.notes) {
+    data.notes = arg.notes;
+  }
+
+})
+
+ipcMain.on("submit", () => {
+  console.log("Submitting: ", data );
+
+  // let dataPath = url.format({
+  //   protocol: 'file:',
+  //   pathname: path.join(__dirname, 'test.json'),
+  //   slashes: true
+  // });
+  let json = JSON.stringify(data);
+  fs.writeFile("./dummy.json", json, function(err) {
+    if(err) {
+      return console.log(err);
+    }
+    console.log("The file was saved!");
+  });
 })
 
 
