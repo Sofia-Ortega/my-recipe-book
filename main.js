@@ -95,11 +95,12 @@ ipcMain.on("sendAddData", (event, arg) => {
 ipcMain.on("submit", () => {
   console.log("Submitting: ", newData );
 
-  let json = JSON.stringify(newData);
 
   fs.readFile('./dummy.json', function (err, oldData) {
     var copy = JSON.parse(oldData)
-    copy.push(json);
+    console.log("copy:", copy);
+    copy.data.push(newData);
+
 
     fs.writeFile("./dummy.json", JSON.stringify(copy), (err) => {
       if (err) return console.log(err);
