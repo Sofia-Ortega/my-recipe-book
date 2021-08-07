@@ -88,6 +88,7 @@ ipcMain.on("sendAddData", (event, arg) => {
   }
   if(arg.notes) {
     newData.notes = arg.notes;
+    newData.id = Date.now();
   }
 
 })
@@ -96,13 +97,13 @@ ipcMain.on("submit", () => {
   console.log("Submitting: ", newData );
 
 
-  fs.readFile('./dummy.json', function (err, oldData) {
-    var copy = JSON.parse(oldData)
+  fs.readFile('./data.json', function (err, oldData) {
+    var copy = JSON.parse(oldData);
     console.log("copy:", copy);
     copy.data.push(newData);
 
 
-    fs.writeFile("./dummy.json", JSON.stringify(copy), (err) => {
+    fs.writeFile("./data.json", JSON.stringify(copy), (err) => {
       if (err) return console.log(err);
       console.log("The data was appended to the file")
     })
