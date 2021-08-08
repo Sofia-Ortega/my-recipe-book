@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {ipcRenderer} from "electron";
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
@@ -41,16 +41,12 @@ function getSteps() {
 }
 
 
-
-
 export default function AddLayout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
-  const createFileClick = () => {
-    ipcRenderer.send("submit");
-  }
+
 
   function getStepContent(stepIndex) {
     switch (stepIndex) {
@@ -105,9 +101,6 @@ export default function AddLayout() {
 
         )}
       </div>
-      <Button variant="contained" color="primary" onClick={createFileClick} >
-        CREATE FILE
-      </Button>
        <Link to="/" className={classes.center}>
          <Button variant="outlined" color="primary" >
            Main Page

@@ -93,6 +93,11 @@ ipcMain.on("sendAddData", (event, arg) => {
 
 })
 
+ipcMain.on("sendReviewData", () => {
+  console.log("Sending review data", newData);
+  mainWindow.send("reviewData", newData);
+})
+
 ipcMain.on("submit", () => {
   console.log("Submitting: ", newData );
 

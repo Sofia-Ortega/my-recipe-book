@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles({
   layoutStyle: {
-    height: "100vh"
+    // height: "100vh"
   },
   description: {
     textAlign: "center",
@@ -37,6 +37,7 @@ const useStyles = makeStyles({
 
 export default function RecipeLayout({cardDat}) {
   const classes = useStyles();
+
 
   return(
     <div className={classes.layoutStyle}>
@@ -69,8 +70,6 @@ export default function RecipeLayout({cardDat}) {
           <Button variant="contained" color="primary">Back to Main</Button>
         </Link>
       </div>
-
-
     </div>
   )
 }

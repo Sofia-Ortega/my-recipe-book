@@ -20,7 +20,7 @@ export default class MainLayout extends Component {
   render() {
     const mainLayoutStyle = {
       backgroundColor: "#f5f5f5",
-      height: "100vh"
+      // height: "100vh"
     }
 
     const addButton = {

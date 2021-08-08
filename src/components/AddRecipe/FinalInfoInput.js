@@ -15,6 +15,7 @@ export default function FinalInfoInput({handleNext, handleBack}) {
       notes: notes
     }
     ipcRenderer.send("sendAddData", data);
+    ipcRenderer.send("sendReviewData");
     handleNext();
   }
 
@@ -23,7 +24,6 @@ export default function FinalInfoInput({handleNext, handleBack}) {
      <InputField label={"Final notes"} handleData={handleData} value={notes}/>
      <p>Total Cook time (optional)</p>
      <NextButton isDisabled={false} handleNext={nextClick} handleBack={handleBack} />
-
    </div>
  )
 

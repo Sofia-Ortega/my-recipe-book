@@ -23,4 +23,10 @@ a:link {
   text-decoration: none;
 }
 
+h1 {
 
+  font-family: Bodoni MT;
+  font-size: 30px;
+  margin-left: 15px;
+  text-decoration: underline;
+}
