@@ -11,10 +11,7 @@ function App() {
 
   const [cardDat, setCardDat] = useState({});
 
-  function openCardTest(dat) {
-   // console.log("up here in app: ", dat);
-   setCardDat(dat);
-  }
+
   const allStyle = {
     padding: 0,
     margin: 0,
@@ -25,7 +22,7 @@ function App() {
       <Route
         exact path="/"
         render={(props) => (
-          <MainLayout{...props} openCardTest={openCardTest}/>
+          <MainLayout{...props} />
         )}
       />
 

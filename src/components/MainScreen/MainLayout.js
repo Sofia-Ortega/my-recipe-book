@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import AppBarLayout from "./AppBar/AppBarLayout.js" ;
@@ -6,17 +6,12 @@ import data from '../../../data.json'
 import RecipeCards from "./RecipeCards";
 
 
-export default class MainLayout extends Component {
-  constructor(props) {
-    super(props);
-    this.openCard = this.openCard.bind(this);
-  }
+export default function MainLayout()  {
 
-  openCard(id) {
+  function openCard(id) {
     this.props.openCardTest(id);
   }
 
-  render() {
     const mainLayoutStyle = {
       minHeight: "100vh",
       minWidth: "660px",
@@ -35,7 +30,7 @@ export default class MainLayout extends Component {
         <div>
           <AppBarLayout/>
         </div>
-        <RecipeCards data={data.data} openCard={this.openCard}/>
+        <RecipeCards data={data.data} openCard={openCard}/>
         <div style={addButton}>
           <Link to="/add">
             <Button variant="contained" color="secondary" >
@@ -45,5 +40,5 @@ export default class MainLayout extends Component {
         </div>
       </div>
     )
-  }
+
 };
