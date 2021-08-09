@@ -4,7 +4,7 @@ import InputField from "./InputField";
 import NextButton from "./NextButton";
 
 export default function FinalInfoInput({handleNext, handleBack}) {
-  const [notes, getNotes] = useState("I am Moana");
+  const [notes, getNotes] = useState("");
 
   const handleData = (data) => {
     getNotes(data[1]);

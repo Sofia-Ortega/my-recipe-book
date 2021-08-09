@@ -35,7 +35,10 @@ const useStyles = makeStyles({
 
 });
 
-export default function RecipeLayout({cardDat}) {
+function DisplayButton() {
+}
+
+export default function RecipeLayout({cardDat, review}) {
   const classes = useStyles();
 
 
@@ -65,10 +68,14 @@ export default function RecipeLayout({cardDat}) {
           {cardDat.notes}
         </div>
       </div>
-      <div className={classes.btn}>
-        <Link to="/">
-          <Button variant="contained" color="primary">Back to Main</Button>
-        </Link>
+      <div>
+        { review === false && (
+          <div className={classes.btn}>
+            <Link to="/">
+              <Button variant="contained" color="primary">Back to Main</Button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )

@@ -33,7 +33,7 @@ function App() {
       <Route
         exact path="/recipe"
         render={(props) => (
-          <RecipeLayout{...props} cardDat={cardDat}/>
+          <RecipeLayout{...props} cardDat={cardDat} review={false}/>
         )}
       />
       <Route exact path="/add" component={AddLayout} />
