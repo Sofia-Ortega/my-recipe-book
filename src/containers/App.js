@@ -5,15 +5,14 @@ import RecipeLayout from "../components/Recipe/RecipeLayout";
 import AddLayout from "../components/AddRecipe/AddLayout";
 import {HashRouter, Route} from "react-router-dom";
 
-import test from "../../test.json"
 
 //ROUTER PAGE
 function App() {
 
-  const [cardDat, setCardDat] = useState(test);
+  const [cardDat, setCardDat] = useState({});
 
   function openCardTest(dat) {
-   console.log("up here in app: ", dat);
+   // console.log("up here in app: ", dat);
    setCardDat(dat);
   }
   const allStyle = {

@@ -23,7 +23,6 @@ const useStyles = makeStyles({
 export default function Review({handleNext, handleBack}) {
   const classes = useStyles();
 
-  //FIXME: reviewData: {}, haveData: false;
   const [reviewData, setReviewData] = useState({
     // "title":"enchilladas",
     // "description":"greatest Mexican food",
@@ -42,7 +41,7 @@ export default function Review({handleNext, handleBack}) {
   })
 
   const handleReviewData = (event, data) => {
-    console.log("receiving data: ",  data);
+    // console.log("receiving data: ",  data);
     setReviewData(data);
     setHaveData(true);
   }

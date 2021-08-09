@@ -114,12 +114,8 @@ ipcMain.on("submit", () => {
     })
   })
 
-  // fs.writeFile("./dummy.json", json, function(err) {
-  //   if(err) {
-  //     return console.log(err);
-  //   }
-  //   console.log("The file was saved!");
-  // });
+  newData = {};
+
 })
 
 

@@ -66,7 +66,6 @@ export default function AddLayout() {
   const handleNext = () => {
 
     if(activeStep + 1 === steps.length) {
-      console.log("Add");
     }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
 

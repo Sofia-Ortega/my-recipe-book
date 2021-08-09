@@ -5,7 +5,6 @@ export default function NextButton({isDisabled, handleNext, handleBack, label}) 
   const nextLabel = label ? "Add" : "Next";
 
   const handleClick = () => {
-    console.log("next click");
     handleNext();
   }
 

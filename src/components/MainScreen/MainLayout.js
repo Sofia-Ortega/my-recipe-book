@@ -19,6 +19,7 @@ export default class MainLayout extends Component {
 
   render() {
     const mainLayoutStyle = {
+      height: "100vh",
       backgroundColor: "#f5f5f5",
       marginBottom: "0 10px"
     }

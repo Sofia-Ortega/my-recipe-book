@@ -28,5 +28,14 @@ h1 {
   font-family: Bodoni MT;
   font-size: 30px;
   margin-left: 15px;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
+}
+
+hr {
+  margin: 10px 40px;
+  border-width: 1.5px;
+  border-style: solid;
+  border-color: #02005D;
+  min-width: 300px;
+
 }
