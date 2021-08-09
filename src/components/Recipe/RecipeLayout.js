@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { ipcRenderer } from "electron";
 import TitleBar from "./TitleBar";
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from "react-router-dom";
@@ -69,97 +70,104 @@ export default function RecipeLayout({cardDat, review}) {
 
   const handleDelete = () => {
     console.log("Deleting", cardDat.title);
+    ipcRenderer.send("deleteRecipe", cardDat.id);
   }
 
+  if(cardDat === undefined) {
+    return (
+      <div>Error</div>
+    )
+  } else {
 
-  return(
-    <div className={classes.layoutStyle}>
-      <TitleBar title={cardDat.title}/>
-      <div className={classes.description}>
-        {cardDat.description}
-      </div>
-      <div>
-        <div className={classes.headings}>
-          Ingredients:
+    return (
+      <div className={classes.layoutStyle}>
+        <TitleBar title={cardDat.title}/>
+        <div className={classes.description}>
+          {cardDat.description}
         </div>
-        <Ingredients ingrList={cardDat.ingredients}/>
-      </div>
-      <div>
-        <div className={classes.headings}>
-          Directions:
-        </div>
-        <Directions stepList={cardDat.steps}/>
-      </div>
-      <div>
-        <div className={classes.headings}>
-          Notes:
-       </div>
-        <div className={classes.noteContent}>
-          {cardDat.notes}
-        </div>
-      </div>
-      <div>
-        { review === false && (
-          <div>
-            <div className={classes.btn}>
-              <Link to="/">
-                <Button variant="contained" color="primary">Back to Main</Button>
-              </Link>
-            </div>
-            <div className={classes.btn}>
-              <Button variant="outlined" color="secondary" onClick={handleOpenModal}>Delete</Button>
-            </div>
+        <div>
+          <div className={classes.headings}>
+            Ingredients:
           </div>
-        )}
-      </div>
-      <Modal
-        open={open}
-        onClose={handleCloseModal}
-        className={classes.modal}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <div  className={classes.paper}>
-          <Fade in={open}>
+          <Ingredients ingrList={cardDat.ingredients}/>
+        </div>
+        <div>
+          <div className={classes.headings}>
+            Directions:
+          </div>
+          <Directions stepList={cardDat.steps}/>
+        </div>
+        <div>
+          <div className={classes.headings}>
+            Notes:
+          </div>
+          <div className={classes.noteContent}>
+            {cardDat.notes}
+          </div>
+        </div>
+        <div>
+          {review === false && (
             <div>
-              <h1 id="simple-modal-title" >Confirm Delete?</h1>
-              <div style={{textAlign: "center"}}>
-                Are you sure you want to PERMANENTLY delete your recipe?
-              </div>
-              <br />
-              <div id="simple-modal-description" >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.modalBtns}
-                  onClick={handleCloseModal}
-                >
-                  Cancel
-                </Button>
-                <br/>
+              <div className={classes.btn}>
                 <Link to="/">
-                  <Button
-                    variant="outlined"
-                    color="secondary"
-                    className={classes.modalBtns}
-                    onClick={handleDelete}
-                  >
-                    Delete Permanently
-                  </Button>
+                  <Button variant="contained" color="primary">Back to Main</Button>
                 </Link>
               </div>
+              <div className={classes.btn}>
+                <Button variant="outlined" color="secondary" onClick={handleOpenModal}>Delete</Button>
+              </div>
             </div>
-          </Fade>
-
+          )}
         </div>
+        <Modal
+          open={open}
+          onClose={handleCloseModal}
+          className={classes.modal}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <div className={classes.paper}>
+            <Fade in={open}>
+              <div>
+                <h1 id="simple-modal-title">Confirm Delete?</h1>
+                <div style={{textAlign: "center"}}>
+                  Are you sure you want to PERMANENTLY delete your recipe?
+                </div>
+                <br/>
+                <div id="simple-modal-description">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.modalBtns}
+                    onClick={handleCloseModal}
+                  >
+                    Cancel
+                  </Button>
+                  <br/>
+                  <Link to="/">
+                    <Button
+                      variant="outlined"
+                      color="secondary"
+                      className={classes.modalBtns}
+                      onClick={handleDelete}
+                    >
+                      Delete Permanently
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </Fade>
 
-      </Modal>
+          </div>
 
-    </div>
-  )
+        </Modal>
+
+      </div>
+    )
+  }
 }

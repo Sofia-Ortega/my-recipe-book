@@ -102,7 +102,7 @@ ipcMain.on("submit", () => {
   console.log("Submitting: ", newData );
 
 
-  fs.readFile('./data.json', function (err, oldData) {
+  fs.readFile("./data.json", function (err, oldData) {
     var copy = JSON.parse(oldData);
     console.log("copy:", copy);
     copy.data.push(newData);
@@ -115,7 +115,22 @@ ipcMain.on("submit", () => {
   })
 
   newData = {};
+})
 
+ipcMain.on("deleteRecipe", (event, id) => {
+  console.log("Deleting: ", id);
+  // setDirList(dirList.filter((dir) => dir.id !== id))
+
+  fs.readFile("./data.json", function (err, oldData) {
+    let storeJson = JSON.parse(oldData);
+    storeJson.data = storeJson.data.filter((dat) => dat.id !== id);
+
+
+    fs.writeFile("./data.json", JSON.stringify(storeJson), (err) => {
+      if (err) return console.log(err);
+      console.log("The recipe was deleted")
+    })
+  })
 })
 
 

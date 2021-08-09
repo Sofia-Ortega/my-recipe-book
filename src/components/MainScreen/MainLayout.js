@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-import { ipcRenderer } from "electron";
 import Button from '@material-ui/core/Button';
 import AppBarLayout from "./AppBar/AppBarLayout.js" ;
 import data from '../../../data.json'
@@ -19,15 +18,15 @@ export default class MainLayout extends Component {
 
   render() {
     const mainLayoutStyle = {
-      height: "100vh",
+      minHeight: "100vh",
+      minWidth: "660px",
       backgroundColor: "#f5f5f5",
       marginBottom: "0 10px"
     }
 
     const addButton = {
       display: "table",
-      margin: "0 auto",
-      padding: 0
+      margin: "0px auto",
     }
 
 

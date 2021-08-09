@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 
 export default function AppBarLayout() {
   const appBarStyle = {
+    minWidth: "660px",
     backgroundColor: "#ffffff",
     display: "flex",
     margin: 0,
@@ -18,6 +19,7 @@ export default function AppBarLayout() {
     color: "#02005D",
     fontFamily: "Pacifico",
     fontWeight: "400",
+    minWidth: "160px",
 
     // borderBottom: "3px solid #02005D"
 
