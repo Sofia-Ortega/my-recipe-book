@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -12,6 +13,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SortIcon from '@material-ui/icons/Sort';
+import {Tooltip} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -132,14 +134,16 @@ export default function AppBarLayout() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <Link to="/cart" style={{ color: "#212121"}}>
+        <MenuItem>
         <IconButton aria-label="show shopping cart" color="inherit">
-          <Badge badgeContent={1} color="secondary">
-            <ShoppingCartIcon />
-          </Badge>
+            <Badge badgeContent={1} color="secondary">
+              <ShoppingCartIcon />
+            </Badge>
         </IconButton>
         <p>Shopping Cart</p>
       </MenuItem>
+      </Link>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -177,22 +181,27 @@ export default function AppBarLayout() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show shopping cart" color="inherit">
-              <Badge badgeContent={1} color="secondary">
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <SortIcon />
-            </IconButton>
-
+            <Link to="/cart" style={{color: "#ffffff"}}>
+              <Tooltip title="Shopping Cart" >
+                <IconButton aria-label="show shopping cart" color="inherit">
+                  <Badge badgeContent={3} color="secondary">
+                    <ShoppingCartIcon />
+                  </Badge>
+                </IconButton>
+              </Tooltip>
+            </Link>
+            <Tooltip title="Sort" >
+              <IconButton
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <SortIcon />
+              </IconButton>
+            </Tooltip>
           </div>
           <div className={classes.sectionMobile}>
             <IconButton

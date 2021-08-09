@@ -1,16 +1,14 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 import AppBarLayout from "./AppBar/AppBarLayout.js" ;
 import data from '../../../data.json'
 import RecipeCards from "./RecipeCards";
 
 
-export default function MainLayout()  {
+export default function MainLayout({openCard})  {
 
-  function openCard(id) {
-    this.props.openCardTest(id);
-  }
 
     const mainLayoutStyle = {
       minHeight: "100vh",
@@ -34,7 +32,8 @@ export default function MainLayout()  {
         <div style={addButton}>
           <Link to="/add">
             <Button variant="contained" color="secondary" >
-              Add
+             <div style={{marginRight: "4px"}}>Add</div>
+             <AddIcon />
             </Button>
           </Link>
         </div>

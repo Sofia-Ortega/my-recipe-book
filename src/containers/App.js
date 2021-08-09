@@ -3,6 +3,7 @@ import '../assets/css/App.css';
 import MainLayout from '../components/MainScreen/MainLayout';
 import RecipeLayout from "../components/Recipe/RecipeLayout";
 import AddLayout from "../components/AddRecipe/AddLayout";
+import CartLayout from "../components/ShoppingCart/CartLayout";
 import {HashRouter, Route} from "react-router-dom";
 
 
@@ -11,6 +12,9 @@ function App() {
 
   const [cardDat, setCardDat] = useState({});
 
+  const openCard = (dat) => {
+    setCardDat(dat);
+  }
 
   const allStyle = {
     padding: 0,
@@ -22,7 +26,7 @@ function App() {
       <Route
         exact path="/"
         render={(props) => (
-          <MainLayout{...props} />
+          <MainLayout{...props} openCard={openCard}/>
         )}
       />
 
@@ -33,6 +37,7 @@ function App() {
         )}
       />
       <Route exact path="/add" component={AddLayout} />
+      <Route exact path="/cart" component={CartLayout} />
     </HashRouter>
   );
 
