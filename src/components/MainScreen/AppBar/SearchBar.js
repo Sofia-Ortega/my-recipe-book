@@ -3,8 +3,9 @@ import React from 'react'
 
 export default function SearchBar() {
   const searchBarStyle = {
-    flex: 12,
     textAlign: "center",
+    backgroundColor: "#868686",
+    borderRadius: "3px"
   }
 
   return(
@@ -13,3 +14,14 @@ export default function SearchBar() {
     </div>
   )
 }
+
+
+//LOGO
+// margin: "0",
+//   padding: "0",
+//   textAlign: "center",
+//   fontSize: "30px",
+//   color: "#02005D",
+//   fontFamily: "Pacifico",
+//   fontWeight: "400",
+//   minWidth: "180px",
