@@ -10,8 +10,6 @@ export default function Ingredients({ingrList, addCheckedIngr, rmCheckedIngr}) {
 
   return (
   <div>
-
-    {/*<button onClick={handleClick}>Ingr List</button>*/}
     <div>
       {
         ingrList.map((ingr) => (

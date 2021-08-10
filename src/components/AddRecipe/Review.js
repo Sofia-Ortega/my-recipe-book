@@ -38,7 +38,7 @@ export default function Review({handleNext, handleBack}) {
     return () => {
       ipcRenderer.removeListener("reviewData", handleReviewData);
     }
-  })
+  }, [])
 
   const handleReviewData = (event, data) => {
     // console.log("receiving data: ",  data);

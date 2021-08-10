@@ -61,24 +61,11 @@ export default function RecipeLayout({cardDat, review}) {
   const [open, setOpen] = useState(false);
   const [checkedIngr, setCheckedIngr] = useState([]);
 
-  useEffect( () => {
-    return () => {
-      console.log(checkedIngr);
-      ipcRenderer.send("updateCart", checkedIngr);
-
-    }
-
-  }, [checkedIngr])
-
-
-
   const addCheckedIngr = (title, id) => {
-
     let data = {
       title: title,
       id: id
     }
-
     console.log("adding", data)
     setCheckedIngr([...checkedIngr, data])
   }
@@ -101,7 +88,14 @@ export default function RecipeLayout({cardDat, review}) {
     ipcRenderer.send("deleteRecipe", cardDat.id);
   }
 
-  if(cardDat === undefined) {
+  const unload = () => {
+    console.log("Leaving page");
+    console.log(checkedIngr);
+    ipcRenderer.send("updateCart", checkedIngr);
+  }
+
+  //------------------Return---------------------
+  if(cardDat === "") {
     return (
       <div>Error</div>
     )
@@ -139,7 +133,7 @@ export default function RecipeLayout({cardDat, review}) {
             <div>
               <div className={classes.btn}>
                 <Link to="/">
-                  <Button variant="contained" color="primary">Back to Main</Button>
+                  <Button variant="contained" color="primary" onClick={unload}>Back to Main</Button>
                 </Link>
               </div>
               <div className={classes.btn}>

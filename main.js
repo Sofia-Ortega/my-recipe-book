@@ -100,7 +100,9 @@ ipcMain.on("sendReviewData", () => {
 
 ipcMain.on("updateCart", (event, arg) => {
   console.log(arg);
+  mainWindow.send("addedCartItems", arg.length);
 })
+
 ipcMain.on("submit", () => {
   console.log("Submitting: ", newData );
 
