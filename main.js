@@ -100,6 +100,18 @@ ipcMain.on("sendReviewData", () => {
 
 ipcMain.on("updateCart", (event, arg) => {
   console.log(arg);
+  let myTitle = arg.recipe;
+
+  fs.readFile("./data.json", function (err,data) {
+    data = JSON.parse(data);
+    data.cart[myTitle] = arg.ingredients;
+
+    fs.writeFile("./data.json", JSON.stringify(data), (err) => {
+      if (err) return console.log(err);
+      console.log("Shopping Cart was updated")
+    })
+
+  })
   mainWindow.send("addedCartItems", arg.length);
 })
 
@@ -111,7 +123,6 @@ ipcMain.on("submit", () => {
     var copy = JSON.parse(oldData);
     console.log("copy:", copy);
     copy.data.push(newData);
-
 
     fs.writeFile("./data.json", JSON.stringify(copy), (err) => {
       if (err) return console.log(err);

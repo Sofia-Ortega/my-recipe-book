@@ -1,1 +1,110 @@
-{"data":[{"title":"Crock Pot Roast","description":"Quick and easy meal","type":"Dinner","id":4,"ingredients":[{"quantity":"1","name":" beef roast","id":1},{"quantity":"1 package","name":"brown gravy mix","id":2},{"quantity":"1 package","name":"dried Italian salad dressing mix","id":3},{"quantity":"1 package","name":"dry ranch dressing mix","id":4},{"quantity":"1/2 cup","name":"water","id":5}],"steps":["Place beef roast in crock pot.","Mix the dried mixes together in a bowl and sprinkle over the roast.","Pour the water around the roast.","Cook on low for 7-9 hours.","blah blah blah, more have some more","everyone loves beef","there was once a chineese restaurant that had a loaf of bread, bread, bread"],"notes":"Is it here in data.json? A Quick an easy meal. Delicious to the end A beautiful tribute. Your late for world one zero pm I am dead on schedule \n"},{"title":"enchilladas","description":"greatest Mexican food","ingredients":[{"id":0,"name":"chicken"},{"id":1,"name":"cheese"}],"steps":["cook chicken","eat cheese"],"notes":"I am Moana","id":1628354456995},{"title":"Pizza","description":"Italy ","ingredients":[{"id":1628354564467,"name":"Could I "},{"id":1628354572829,"name":"Im not your guy"}],"steps":["Forever","Now I know","You are my true north"],"notes":"When you are not there","id":1628354595326}]}
+{
+  "data": [
+    {
+      "title": "Crock Pot Roast",
+      "description": "Quick and easy meal",
+      "type": "Dinner",
+      "id": 4,
+      "ingredients": [
+        {
+          "quantity": "1",
+          "name": " beef roast",
+          "id": 1
+        },
+        {
+          "quantity": "1 package",
+          "name": "brown gravy mix",
+          "id": 2
+        },
+        {
+          "quantity": "1 package",
+          "name": "dried Italian salad dressing mix",
+          "id": 3
+        },
+        {
+          "quantity": "1 package",
+          "name": "dry ranch dressing mix",
+          "id": 4
+        },
+        {
+          "quantity": "1/2 cup",
+          "name": "water",
+          "id": 5
+        }
+      ],
+      "steps": [
+        "Place beef roast in crock pot.",
+        "Mix the dried mixes together in a bowl and sprinkle over the roast.",
+        "Pour the water around the roast.",
+        "Cook on low for 7-9 hours.",
+        "blah blah blah, more have some more",
+        "everyone loves beef",
+        "there was once a chineese restaurant that had a loaf of bread, bread, bread"
+      ],
+      "notes": "Is it here in data.json? A Quick an easy meal. Delicious to the end A beautiful tribute. Your late for world one zero pm I am dead on schedule \n"
+    },
+    {
+      "title": "enchilladas",
+      "description": "greatest Mexican food",
+      "ingredients": [
+        {
+          "id": 0,
+          "name": "chicken"
+        },
+        {
+          "id": 1,
+          "name": "cheese"
+        }
+      ],
+      "steps": [
+        "cook chicken",
+        "eat cheese"
+      ],
+      "notes": "I am Moana",
+      "id": 1628354456995
+    },
+    {
+      "title": "Pizza",
+      "description": "Italy ",
+      "ingredients": [
+        {
+          "id": 1628354564467,
+          "name": "Could I "
+        },
+        {
+          "id": 1628354572829,
+          "name": "Im not your guy"
+        }
+      ],
+      "steps": [
+        "Forever",
+        "Now I know",
+        "You are my true north"
+      ],
+      "notes": "When you are not there",
+      "id": 1628354595326
+    }
+  ],
+  "cart": {
+    "Crock Pot Roast": [
+      {
+        "id": 1,
+        "title": "1 of  beef roast"
+      },
+      {
+        "id": 2,
+        "title": "1 package of brown gravy mix"
+      },
+      {
+        "id": 3,
+        "title": "1 package of dried Italian salad dressing mix"
+      }
+    ],
+    "enchilladas": [
+      {
+        "id": 0,
+        "title": "chicken"
+      }
+    ]
+  }
+}

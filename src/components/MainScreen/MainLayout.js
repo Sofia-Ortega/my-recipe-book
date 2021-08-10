@@ -26,8 +26,8 @@ const useStyles = makeStyles(() => ({
 }))
 export default function MainLayout({openCard})  {
   const classes = useStyles();
-  const [popup, setPopup] = useState(true);
-  let numOfItems = 0;
+  const [popup, setPopup] = useState(false);
+  const [itemNum, setItemNum] = useState(0);
 
   useEffect( () => {
     ipcRenderer.on("addedCartItems", openPopup)
@@ -36,9 +36,11 @@ export default function MainLayout({openCard})  {
     }
   }, [])
 
-  const openPopup = (num) => {
-    let numOfItems = num;
-    setPopup(true);
+  const openPopup = (event, num) => {
+    if(num > 0 ) {
+      setItemNum(num);
+      setPopup(true);
+    }
   }
 
   const closePopup = (event, reason) => {
@@ -73,9 +75,9 @@ const mainLayoutStyle = {
         }}
         TransitionComponent={Fade}
         open={popup}
-        // autoHideDuration={3000}
-        onClose={closePopup}
-        message={`${numOfItems} items added to shopping cart`}
+        autoHideDuration={3000}
+        // onClose={closePopup}
+        message={`${itemNum} Items added to your Shopping Cart`}
         action={
           <div className={classes.popup}>
             <IconButton size="small" aria-label="close" color="inherit" onClick={closePopup}>
@@ -84,9 +86,7 @@ const mainLayoutStyle = {
           </div>
         }
         />
-        <Button variant="outlined" color="primary" onClick={openPopup}>Open Popup</Button>
-
-
+        {/*<Button variant="outlined" color="primary" onClick={openPopup}>Open Popup</Button>*/}
       <div style={addButton}>
         <Link to="/add">
           <Button variant="contained" color="secondary" >

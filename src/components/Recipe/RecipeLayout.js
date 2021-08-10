@@ -66,7 +66,7 @@ export default function RecipeLayout({cardDat, review}) {
       title: title,
       id: id
     }
-    console.log("adding", data)
+    // console.log("adding", data)
     setCheckedIngr([...checkedIngr, data])
   }
 
@@ -89,9 +89,11 @@ export default function RecipeLayout({cardDat, review}) {
   }
 
   const unload = () => {
-    console.log("Leaving page");
-    console.log(checkedIngr);
-    ipcRenderer.send("updateCart", checkedIngr);
+    let data = {
+      "recipe": cardDat.title,
+      "ingredients": checkedIngr,
+    }
+    ipcRenderer.send("updateCart", data);
   }
 
   //------------------Return---------------------
@@ -103,7 +105,6 @@ export default function RecipeLayout({cardDat, review}) {
 
     return (
       <div className={classes.layoutStyle}>
-        <button onClick={() => {console.log(checkedIngr)}}>CLICK ME</button>
         <TitleBar title={cardDat.title}/>
         <div className={classes.description}>
           {cardDat.description}
