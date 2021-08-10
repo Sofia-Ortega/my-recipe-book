@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { ipcRenderer } from "electron";
 import TitleBar from "./TitleBar";
 import { makeStyles } from '@material-ui/core/styles';
@@ -59,6 +59,34 @@ const useStyles = makeStyles((theme) => ({
 export default function RecipeLayout({cardDat, review}) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const [checkedIngr, setCheckedIngr] = useState([]);
+
+  useEffect( () => {
+    return () => {
+      console.log(checkedIngr);
+      ipcRenderer.send("updateCart", checkedIngr);
+
+    }
+
+  }, [checkedIngr])
+
+
+
+  const addCheckedIngr = (title, id) => {
+
+    let data = {
+      title: title,
+      id: id
+    }
+
+    console.log("adding", data)
+    setCheckedIngr([...checkedIngr, data])
+  }
+
+  const rmCheckedIngr = (id) => {
+    setCheckedIngr(checkedIngr.filter((ingr) => ingr.id !== id))
+
+  }
 
   const handleOpenModal = () => {
     setOpen(true);
@@ -81,6 +109,7 @@ export default function RecipeLayout({cardDat, review}) {
 
     return (
       <div className={classes.layoutStyle}>
+        <button onClick={() => {console.log(checkedIngr)}}>CLICK ME</button>
         <TitleBar title={cardDat.title}/>
         <div className={classes.description}>
           {cardDat.description}
@@ -89,7 +118,7 @@ export default function RecipeLayout({cardDat, review}) {
           <div className={classes.headings}>
             Ingredients:
           </div>
-          <Ingredients ingrList={cardDat.ingredients}/>
+          <Ingredients ingrList={cardDat.ingredients} addCheckedIngr={addCheckedIngr} rmCheckedIngr={rmCheckedIngr}/>
         </div>
         <div>
           <div className={classes.headings}>

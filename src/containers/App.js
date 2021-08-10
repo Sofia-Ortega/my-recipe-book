@@ -6,11 +6,13 @@ import AddLayout from "../components/AddRecipe/AddLayout";
 import CartLayout from "../components/ShoppingCart/CartLayout";
 import {HashRouter, Route} from "react-router-dom";
 
+import data from "../../data.json"
+
 
 //ROUTER PAGE
 function App() {
 
-  const [cardDat, setCardDat] = useState({});
+  const [cardDat, setCardDat] = useState(data.data[0]);
 
   const openCard = (dat) => {
     setCardDat(dat);
