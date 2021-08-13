@@ -100,11 +100,18 @@ ipcMain.on("sendReviewData", () => {
 
 ipcMain.on("updateCart", (event, arg) => {
   console.log(arg);
-  let myTitle = arg.recipe;
+  let myTitle = arg.title;
+  let checkedIngr = arg.ingredients.filter((item) => item.checked === true);
+  console.log("--------------------Checked Ingr --------------------------")
+  console.log(checkedIngr);
+  console.log("------------------------------------------------------------")
 
   fs.readFile("./data.json", function (err,data) {
     data = JSON.parse(data);
-    data.cart[myTitle] = arg.ingredients;
+    data.cart[myTitle] = checkedIngr[0];
+
+    var index = data.data.findIndex((recipe) => recipe.title === myTitle)
+    data.data[index].ingredients = arg.ingredients;
 
     fs.writeFile("./data.json", JSON.stringify(data), (err) => {
       if (err) return console.log(err);

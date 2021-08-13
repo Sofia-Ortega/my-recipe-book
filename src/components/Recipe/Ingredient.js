@@ -9,22 +9,15 @@ const useStyles = makeStyles(() => ({
     margin: "2px 0 2px 55px"
   }
 }))
-export default function Ingredient({ingredient, addCheckedIngr, rmCheckedIngr}) {
-  const [checked, setChecked] = useState(false);
+export default function Ingredient({ingredient, checkBoxChange }) {
+  const [checked, setChecked] = useState(ingredient.checked || false);
   const classes = useStyles();
   const ingrTitle = ingredient.quantity ? ingredient.quantity + " of " + ingredient.name : ingredient.name;
 
   const handleChange = (event) => {
     let isChecked = event.target.checked;
-
-    if(isChecked === true) {
-      addCheckedIngr(ingrTitle, ingredient.id);
-    } else {
-      rmCheckedIngr(ingredient.id);
-    }
-
+    checkBoxChange(isChecked, ingredient.id);
     setChecked(isChecked);
-
   };
 
   return(

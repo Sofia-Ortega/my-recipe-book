@@ -60,21 +60,45 @@ export default function RecipeLayout({cardDat, review}) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [checkedIngr, setCheckedIngr] = useState([]);
+  const [ingrList, setIngrList] = useState(cardDat.ingredients);
 
   const addCheckedIngr = (title, id) => {
+    //add to list
     let data = {
       title: title,
       id: id
     }
-    // console.log("adding", data)
     setCheckedIngr([...checkedIngr, data])
+
+    checkBoxChange(true, id);
   }
 
   const rmCheckedIngr = (id) => {
     setCheckedIngr(checkedIngr.filter((ingr) => ingr.id !== id))
+    checkBoxChange(false, id);
 
   }
 
+  const checkBoxChange = (isChecked, id) => {
+    //change ingrList
+    // console.log(ingrList);
+    const newList = ingrList.map((item) => {
+      if(item.id === id) {
+        return {
+          id: item.id,
+          name: item.name,
+          checked: isChecked
+        };
+      }
+      return item;
+    });
+
+    newList.map((item)=> {
+      console.log(item.checked);
+    })
+
+    setIngrList(newList)
+  }
   const handleOpenModal = () => {
     setOpen(true);
   }
@@ -90,8 +114,8 @@ export default function RecipeLayout({cardDat, review}) {
 
   const unload = () => {
     let data = {
-      "recipe": cardDat.title,
-      "ingredients": checkedIngr,
+      ingredients: ingrList,
+      title: cardDat.title
     }
     ipcRenderer.send("updateCart", data);
   }
@@ -113,7 +137,7 @@ export default function RecipeLayout({cardDat, review}) {
           <div className={classes.headings}>
             Ingredients:
           </div>
-          <Ingredients ingrList={cardDat.ingredients} addCheckedIngr={addCheckedIngr} rmCheckedIngr={rmCheckedIngr}/>
+          <Ingredients ingrList={cardDat.ingredients} checkBoxChange={checkBoxChange}/>
         </div>
         <div>
           <div className={classes.headings}>
