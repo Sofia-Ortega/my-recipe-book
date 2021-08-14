@@ -22,7 +22,6 @@ export default function FinalInfoInput({handleNext, handleBack}) {
  return(
    <div>
      <InputField label={"Final notes"} handleData={handleData} value={notes}/>
-     {/*<p>Total Cook time (optional)</p>*/}
      <NextButton isDisabled={false} handleNext={nextClick} handleBack={handleBack} />
    </div>
  )

@@ -12,6 +12,7 @@ import data from "../../data.json"
 //ROUTER PAGE
 function App() {
 
+  //FIXME: useState(""); //for testing purposes only
   const [cardDat, setCardDat] = useState(data.data[0]);
 
   const openCard = (dat) => {

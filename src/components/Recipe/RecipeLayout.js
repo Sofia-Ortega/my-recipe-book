@@ -10,7 +10,7 @@ import Modal from "@material-ui/core/Modal"
 import Backdrop from "@material-ui/core/Backdrop"
 import Fade from "@material-ui/core/Fade"
 
-
+// .......... Styling .............
 const useStyles = makeStyles((theme) => ({
   layoutStyle: {
     paddingBottom: "10px"
@@ -56,32 +56,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+// ....................... RecipeLayout .....................
 export default function RecipeLayout({cardDat, review}) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [checkedIngr, setCheckedIngr] = useState([]);
   const [ingrList, setIngrList] = useState(cardDat.ingredients);
 
-  const addCheckedIngr = (title, id) => {
-    //add to list
-    let data = {
-      title: title,
-      id: id
-    }
-    setCheckedIngr([...checkedIngr, data])
-
-    checkBoxChange(true, id);
-  }
-
-  const rmCheckedIngr = (id) => {
-    setCheckedIngr(checkedIngr.filter((ingr) => ingr.id !== id))
-    checkBoxChange(false, id);
-
-  }
-
   const checkBoxChange = (isChecked, id) => {
-    //change ingrList
-    // console.log(ingrList);
+    //keeps track of changes in checkboxes
+
     const newList = ingrList.map((item) => {
       if(item.id === id) {
         return {
@@ -93,6 +76,7 @@ export default function RecipeLayout({cardDat, review}) {
       return item;
     });
 
+    //FIXME: testing
     newList.map((item)=> {
       console.log(item.checked);
     })
@@ -113,6 +97,7 @@ export default function RecipeLayout({cardDat, review}) {
   }
 
   const unload = () => {
+    //executed when user clicks "Go to Main" btn
     let data = {
       ingredients: ingrList,
       title: cardDat.title
@@ -120,7 +105,7 @@ export default function RecipeLayout({cardDat, review}) {
     ipcRenderer.send("updateCart", data);
   }
 
-  //------------------Return---------------------
+  // ..... Return ......
   if(cardDat === "") {
     return (
       <div>Error</div>

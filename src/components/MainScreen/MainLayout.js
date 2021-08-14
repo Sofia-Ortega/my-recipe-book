@@ -7,23 +7,29 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Snackbar from "@material-ui/core/Snackbar";
 import AppBarLayout from "./AppBar/AppBarLayout.js" ;
-// import data from '../../../data.json'
 import RecipeCards from "./RecipeCards";
 import {makeStyles} from "@material-ui/core/styles";
 import Fade from '@material-ui/core/Fade';
 
-
+//.................Styling..............
 const useStyles = makeStyles(() => ({
+  mainLayout: {
+    minHeight: "100vh",
+    minWidth: "660px",
+    backgroundColor: "#f5f5f5",
+    marginBottom: "0 10px"
+  },
+  addBtn: {
+    display: "table",
+    margin: "0px auto",
+  },
   popup: {
-    backgroundColor: "#00860af0"
-  },
-  '.MuiSnackbar-root': {
-    backgroundColor: "blue"
-  },
-  root: {
-    backgroundColor: "red",
+
   }
+
 }))
+
+//...............Main Layout...................
 export default function MainLayout({openCard})  {
   const classes = useStyles();
   const [popup, setPopup] = useState(false);
@@ -31,6 +37,7 @@ export default function MainLayout({openCard})  {
   const [itemNum, setItemNum] = useState(0);
   const [empty, setEmpty] = useState(false);
 
+  //handle msgs from electron
   useEffect( () => {
     ipcRenderer.send("sendDataJson");
     ipcRenderer.on("dataJson", handleJson);
@@ -41,7 +48,9 @@ export default function MainLayout({openCard})  {
     }
   }, [])
 
+  //...functions...
   const handleJson = (event, arg) => {
+    //gets recipe data from electron
     console.log("setting data: ", arg);
     if(arg.data[0] !== "empty") {
       setEmpty(true);
@@ -50,7 +59,9 @@ export default function MainLayout({openCard})  {
       setEmpty(false);
     }
   }
+
   const openPopup = (event, num) => {
+    //opens pop up when ingredient added to shopping cart
     console.log("opening popup: ", num);
     if(num > 0 ) {
       setItemNum(num);
@@ -59,30 +70,20 @@ export default function MainLayout({openCard})  {
   }
 
   const closePopup = (event, reason) => {
+    //closes popup on clickaway
     if( reason === 'clickaway') return;
     setPopup(false);
   }
 
   const showData = () => {
+    //testing purposes
     console.log(data);
     console.log(empty);
     ipcRenderer.send("sendDataJson");
   }
 
-const mainLayoutStyle = {
-    minHeight: "100vh",
-    minWidth: "660px",
-    backgroundColor: "#f5f5f5",
-    marginBottom: "0 10px"
-  }
-
-  const addButton = {
-    display: "table",
-    margin: "0px auto",
-  }
-
   return(
-    <div style={mainLayoutStyle}>
+    <div className={classes.mainLayout}>
       <div>
         <AppBarLayout />
       </div>
@@ -111,7 +112,7 @@ const mainLayoutStyle = {
         }
         />
         {/*<Button variant="outlined" color="primary" onClick={showData}>Show data state</Button>*/}
-      <div style={addButton}>
+      <div className={classes.addBtn}>
         <Link to="/add">
           <Button variant="contained" color="secondary" >
            <div style={{marginRight: "4px"}}>Add</div>

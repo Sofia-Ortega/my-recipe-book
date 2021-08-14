@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React  from 'react';
 import {ipcRenderer} from "electron";
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
@@ -46,12 +46,10 @@ export default function AddLayout() {
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
-
-
   function getStepContent(stepIndex) {
+    // renders correct step according to step
     switch (stepIndex) {
       case 0:
-        // return <Review handleNext={handleNext} handleBack={handleBack} />;
         return <TitleInput handleNext={handleNext} handleBack={handleBack}/>;
       case 1:
         return <IngrDirInput handleNext={handleNext} handleBack={handleBack}/>;
@@ -64,20 +62,24 @@ export default function AddLayout() {
     }
   }
   const handleNext = () => {
-
-    if(activeStep + 1 === steps.length) {
-    }
+    //keeps track of next btn
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-
   };
 
   const handleBack = () => {
+    //keeps track of back btn
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const handleReset = () => {
+    //resets entire add process
     setActiveStep(0);
   };
+
+  const handleClick = () => {
+    ipcRenderer.send("sendDataJson");
+  }
+
   return (
     <div className={classes.root}>
       <div className={classes.title}>
@@ -102,7 +104,7 @@ export default function AddLayout() {
         )}
       </div>
        <Link to="/" className={classes.center}>
-         <Button variant="outlined" color="primary" >
+         <Button variant="outlined" color="primary" onClick={handleClick} >
            Main Page
          </Button>
        </Link>

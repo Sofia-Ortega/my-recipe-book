@@ -74,9 +74,10 @@ function createWindow() {
   });
 }
 
-//..........................Receive react msg.....................
+//..........................Communication w React.....................
 var newData = {};
 ipcMain.on("sendDataJson", (event, arg) => {
+  //send data from json to react
   let sendData;
   fs.readFile("./data.json", function (err,data) {
     sendData = JSON.parse(data);
@@ -85,6 +86,7 @@ ipcMain.on("sendDataJson", (event, arg) => {
 })
 
 ipcMain.on("sendAddData", (event, arg) => {
+  //keeps track of data from add page
   if(arg.title) {
     newData.title = arg.title;
   }
@@ -108,26 +110,34 @@ ipcMain.on("sendAddData", (event, arg) => {
 })
 
 ipcMain.on("sendReviewData", () => {
+  //sends stored temporary data from add layout
   console.log("Sending review data", newData);
   mainWindow.send("reviewData", newData);
 })
 
 ipcMain.on("updateCart", (event, arg) => {
+  //updates ingredients in cart
+
+  //set ups
   console.log(arg);
   let myTitle = arg.title;
   let checkedIngr = arg.ingredients.filter((item) => item.checked === true);
-
   let sendData;
+
+  //reads data from json
   fs.readFile("./data.json", function (err,data) {
     data = JSON.parse(data);
-    data.cart[myTitle] = checkedIngr[0];
+    data.cart[myTitle] = checkedIngr[0]; //updates data.cart
 
+    //finds index of data to update ingredients
     var index = data.data.findIndex((recipe) => recipe.title === myTitle)
     data.data[index].ingredients = arg.ingredients;
+
+    //sends updated data to react
     sendData = data;
-    // console.log(sendData);
     mainWindow.send("dataJson", sendData);
 
+    //writes files
     fs.writeFile("./data.json", JSON.stringify(data), (err) => {
       if (err) return console.log(err);
       console.log("Shopping Cart was updated")
@@ -135,51 +145,55 @@ ipcMain.on("updateCart", (event, arg) => {
 
   })
 
+  //sends number of ingredients added for popup in mainlayout
+  //FIXME: not sending correct number of checkedIngr
   mainWindow.send("addedCartItems", checkedIngr.length);
 })
 
 ipcMain.on("submit", () => {
-  console.log("==========================Submitting=========================\n ", newData );
+  //updates data.json to add new recipe created by user
   let argData = newData;
 
-
+  //opens data.json
   fs.readFile("./data.json", function (err, oldData) {
+    //updates data
     var copy = JSON.parse(oldData);
-    // console.log("copy:", copy);
     copy.data.push(argData);
-    // console.log("-======================New Data Inside=====================")
-    // console.log(argData);
 
+    //rewrites file
     fs.writeFile("./data.json", JSON.stringify(copy), (err) => {
       if (err) return console.log(err);
       console.log("The data was appended to the file")
     })
   })
 
+  //resets temporary data
   newData = {};
 })
 
 ipcMain.on("deleteRecipe", (event, id) => {
+  //deletes recipe
   console.log("Deleting: ", id);
 
+  //opens data.json
   fs.readFile("./data.json", function (err, oldData) {
     let storeJson = JSON.parse(oldData);
-    let index = storeJson.data.findIndex((dat) => dat.id === id);
-    let deleteTitle = storeJson.data[index].title;
-    delete storeJson.cart[deleteTitle];
-    storeJson.data.splice(index, 1);
-    // storeJson.data = storeJson.data.filter((dat) => dat.id !== id);
 
+    //finds index of data
+    let index = storeJson.data.findIndex((dat) => dat.id === id);
+    let deleteTitle = storeJson.data[index].title; //stores title
+    delete storeJson.cart[deleteTitle]; //deletes correct data.cart ingredients
+    storeJson.data.splice(index, 1); //deletes data.data info
+
+    //if storeJson has no recipes,
     if(storeJson.data === []) storeJson.data = ["empty"];
 
-
-
+    //rewrites data.json
     fs.writeFile("./data.json", JSON.stringify(storeJson), (err) => {
       if (err) return console.log(err);
       console.log("The recipe was deleted")
     })
   })
-
 
 })
 

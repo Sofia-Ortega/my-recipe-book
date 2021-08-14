@@ -15,6 +15,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SortIcon from '@material-ui/icons/Sort';
 import {Tooltip} from "@material-ui/core";
 
+//.......Styling........
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -81,6 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//..............AddBarLayout......................
 export default function AppBarLayout() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -93,8 +95,8 @@ export default function AppBarLayout() {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
+  const handleMobileMenuOpen = (event) => {
+    setMobileMoreAnchorEl(event.currentTarget);
   };
 
   const handleMenuClose = () => {
@@ -102,8 +104,8 @@ export default function AppBarLayout() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
   };
 
   const menuId = 'primary-search-account-menu';
