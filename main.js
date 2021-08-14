@@ -75,7 +75,7 @@ function createWindow() {
 }
 
 //..........................Receive react msg.....................
-let newData = {};
+var newData = {};
 ipcMain.on("sendDataJson", (event, arg) => {
   let sendData;
   fs.readFile("./data.json", function (err,data) {
@@ -125,8 +125,7 @@ ipcMain.on("updateCart", (event, arg) => {
     var index = data.data.findIndex((recipe) => recipe.title === myTitle)
     data.data[index].ingredients = arg.ingredients;
     sendData = data;
-    console.log("here----");
-    console.log(sendData);
+    // console.log(sendData);
     mainWindow.send("dataJson", sendData);
 
     fs.writeFile("./data.json", JSON.stringify(data), (err) => {
@@ -140,13 +139,16 @@ ipcMain.on("updateCart", (event, arg) => {
 })
 
 ipcMain.on("submit", () => {
-  console.log("Submitting: ", newData );
+  console.log("==========================Submitting=========================\n ", newData );
+  let argData = newData;
 
 
   fs.readFile("./data.json", function (err, oldData) {
     var copy = JSON.parse(oldData);
-    console.log("copy:", copy);
-    copy.data.push(newData);
+    // console.log("copy:", copy);
+    copy.data.push(argData);
+    // console.log("-======================New Data Inside=====================")
+    // console.log(argData);
 
     fs.writeFile("./data.json", JSON.stringify(copy), (err) => {
       if (err) return console.log(err);
