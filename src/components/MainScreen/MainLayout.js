@@ -84,7 +84,7 @@ const mainLayoutStyle = {
   return(
     <div style={mainLayoutStyle}>
       <div>
-        <AppBarLayout/>
+        <AppBarLayout />
       </div>
       {
         empty ?

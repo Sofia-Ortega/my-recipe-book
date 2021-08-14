@@ -113,7 +113,7 @@ ipcMain.on("sendReviewData", () => {
 })
 
 ipcMain.on("updateCart", (event, arg) => {
-  // console.log(arg);
+  console.log(arg);
   let myTitle = arg.title;
   let checkedIngr = arg.ingredients.filter((item) => item.checked === true);
 
@@ -135,7 +135,7 @@ ipcMain.on("updateCart", (event, arg) => {
 
   })
 
-  mainWindow.send("addedCartItems", arg.length);
+  mainWindow.send("addedCartItems", checkedIngr.length);
 })
 
 ipcMain.on("submit", () => {
