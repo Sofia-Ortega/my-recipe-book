@@ -7,12 +7,12 @@ import NextButton from "../NextButton";
 export default function IngrDirInput({handleNext, handleBack}) {
 
   const [ingrList, setIngrList] = useState([
-    // {'name': "One", 'id': 0},
-    // {'name': 'Two', 'id': 1},
+    {'name': "One", 'id': 0},
+    {'name': 'Two', 'id': 1},
   ]);
   const [dirList, setDirList] = useState([
-    // {'name': "cook rice", 'id': 0},
-    // {'name': 'fry cheese', 'id': 1},
+    {'name': "cook rice", 'id': 0},
+    {'name': 'fry cheese', 'id': 1},
   ]);
 
   function nextClick() {

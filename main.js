@@ -161,13 +161,18 @@ ipcMain.on("submit", () => {
 
 ipcMain.on("deleteRecipe", (event, id) => {
   console.log("Deleting: ", id);
-  // setDirList(dirList.filter((dir) => dir.id !== id))
-
 
   fs.readFile("./data.json", function (err, oldData) {
     let storeJson = JSON.parse(oldData);
-    storeJson.data = storeJson.data.filter((dat) => dat.id !== id);
+    let index = storeJson.data.findIndex((dat) => dat.id === id);
+    let deleteTitle = storeJson.data[index].title;
+    delete storeJson.cart[deleteTitle];
+    storeJson.data.splice(index, 1);
+    // storeJson.data = storeJson.data.filter((dat) => dat.id !== id);
+
     if(storeJson.data === []) storeJson.data = ["empty"];
+
+
 
     fs.writeFile("./data.json", JSON.stringify(storeJson), (err) => {
       if (err) return console.log(err);
