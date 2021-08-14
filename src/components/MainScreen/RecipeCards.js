@@ -2,6 +2,7 @@
 import React from 'react'
 import RecipeCard from "./RecipeCard";
 import {makeStyles} from "@material-ui/core/styles";
+import {ipcRenderer} from "electron";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,16 +21,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RecipeCards({data, openCard}) {
+  const showData = () => {
+    console.log(data);
+  }
   const classes = useStyles();
+ if(data === []) {
+   ipcRenderer.send("sendDataJson");
+   return (
+     <div>Loading</div>
+   )
 
-  return (
-    <div className={classes.recipeCards}>
-      {
-        data.map((recipe) => (
-          <RecipeCard dat={recipe} key={recipe.id} openCard={openCard}/>
-        ))
-      }
+ } else {
 
-    </div>
-  )
+   return (
+     <div className={classes.recipeCards}>
+       {/*<button onClick={showData}>Data</button>*/}
+       {
+         data.map((recipe) => (
+           <RecipeCard dat={recipe} key={recipe.id} openCard={openCard}/>
+         ))
+       }
+     </div>
+   )
+ }
 }

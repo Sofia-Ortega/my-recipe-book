@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Snackbar from "@material-ui/core/Snackbar";
 import AppBarLayout from "./AppBar/AppBarLayout.js" ;
-import data from '../../../data.json'
+// import data from '../../../data.json'
 import RecipeCards from "./RecipeCards";
 import {makeStyles} from "@material-ui/core/styles";
 import Fade from '@material-ui/core/Fade';
@@ -27,16 +27,31 @@ const useStyles = makeStyles(() => ({
 export default function MainLayout({openCard})  {
   const classes = useStyles();
   const [popup, setPopup] = useState(false);
+  const [data, setData] = useState({data: []});
   const [itemNum, setItemNum] = useState(0);
+  const [empty, setEmpty] = useState(false);
 
   useEffect( () => {
-    ipcRenderer.on("addedCartItems", openPopup)
+    ipcRenderer.send("sendDataJson");
+    ipcRenderer.on("dataJson", handleJson);
+    ipcRenderer.on("addedCartItems", openPopup);
     return () => {
+      ipcRenderer.removeListener("dataJson", handleJson);
       ipcRenderer.removeListener("addedCartItems", openPopup);
     }
   }, [])
 
+  const handleJson = (event, arg) => {
+    console.log("setting data: ", arg);
+    if(arg.data[0] !== "empty") {
+      setEmpty(true);
+      setData(arg);
+    } else {
+      setEmpty(false);
+    }
+  }
   const openPopup = (event, num) => {
+    console.log("opening popup: ", num);
     if(num > 0 ) {
       setItemNum(num);
       setPopup(true);
@@ -45,10 +60,14 @@ export default function MainLayout({openCard})  {
 
   const closePopup = (event, reason) => {
     if( reason === 'clickaway') return;
-
     setPopup(false);
   }
 
+  const showData = () => {
+    console.log(data);
+    console.log(empty);
+    ipcRenderer.send("sendDataJson");
+  }
 
 const mainLayoutStyle = {
     minHeight: "100vh",
@@ -67,7 +86,12 @@ const mainLayoutStyle = {
       <div>
         <AppBarLayout/>
       </div>
-      <RecipeCards data={data.data} openCard={openCard}/>
+      {
+        empty ?
+          <RecipeCards data={data.data} openCard={openCard}/> :
+          <div>Empty</div>
+      //  FIXME: Add Loading Page
+      }
       <Snackbar
         anchorOrigin={{
           vertical: 'bottom',
@@ -86,7 +110,7 @@ const mainLayoutStyle = {
           </div>
         }
         />
-        {/*<Button variant="outlined" color="primary" onClick={openPopup}>Open Popup</Button>*/}
+        {/*<Button variant="outlined" color="primary" onClick={showData}>Show data state</Button>*/}
       <div style={addButton}>
         <Link to="/add">
           <Button variant="contained" color="secondary" >

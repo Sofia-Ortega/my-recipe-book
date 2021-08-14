@@ -57,6 +57,12 @@ function createWindow() {
     if ( dev ) {
       mainWindow.webContents.openDevTools();
     }
+
+    let sendData;
+    fs.readFile("./data.json", function (err,data) {
+      sendData = JSON.parse(data);
+      mainWindow.send("dataJson", sendData);
+    })
   });
 
   // Emitted when the window is closed.
@@ -70,6 +76,14 @@ function createWindow() {
 
 //..........................Receive react msg.....................
 let newData = {};
+ipcMain.on("sendDataJson", (event, arg) => {
+  let sendData;
+  fs.readFile("./data.json", function (err,data) {
+    sendData = JSON.parse(data);
+    mainWindow.send("dataJson", sendData);
+  })
+})
+
 ipcMain.on("sendAddData", (event, arg) => {
   if(arg.title) {
     newData.title = arg.title;
@@ -99,19 +113,21 @@ ipcMain.on("sendReviewData", () => {
 })
 
 ipcMain.on("updateCart", (event, arg) => {
-  console.log(arg);
+  // console.log(arg);
   let myTitle = arg.title;
   let checkedIngr = arg.ingredients.filter((item) => item.checked === true);
-  console.log("--------------------Checked Ingr --------------------------")
-  console.log(checkedIngr);
-  console.log("------------------------------------------------------------")
 
+  let sendData;
   fs.readFile("./data.json", function (err,data) {
     data = JSON.parse(data);
     data.cart[myTitle] = checkedIngr[0];
 
     var index = data.data.findIndex((recipe) => recipe.title === myTitle)
     data.data[index].ingredients = arg.ingredients;
+    sendData = data;
+    console.log("here----");
+    console.log(sendData);
+    mainWindow.send("dataJson", sendData);
 
     fs.writeFile("./data.json", JSON.stringify(data), (err) => {
       if (err) return console.log(err);
@@ -119,6 +135,7 @@ ipcMain.on("updateCart", (event, arg) => {
     })
 
   })
+
   mainWindow.send("addedCartItems", arg.length);
 })
 
@@ -144,16 +161,19 @@ ipcMain.on("deleteRecipe", (event, id) => {
   console.log("Deleting: ", id);
   // setDirList(dirList.filter((dir) => dir.id !== id))
 
+
   fs.readFile("./data.json", function (err, oldData) {
     let storeJson = JSON.parse(oldData);
     storeJson.data = storeJson.data.filter((dat) => dat.id !== id);
-
+    if(storeJson.data === []) storeJson.data = ["empty"];
 
     fs.writeFile("./data.json", JSON.stringify(storeJson), (err) => {
       if (err) return console.log(err);
       console.log("The recipe was deleted")
     })
   })
+
+
 })
 
 
