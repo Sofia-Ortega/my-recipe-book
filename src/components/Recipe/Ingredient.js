@@ -3,12 +3,12 @@ import {makeStyles} from "@material-ui/core/styles"
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-
 const useStyles = makeStyles(() => ({
   root: {
     margin: "2px 0 2px 55px"
   }
 }))
+
 export default function Ingredient({ingredient, checkBoxChange }) {
   const [checked, setChecked] = useState(ingredient.checked || false);
   const classes = useStyles();

@@ -23,16 +23,9 @@ const useStyles = makeStyles({
 export default function Review({handleNext, handleBack}) {
   const classes = useStyles();
 
-  const [reviewData, setReviewData] = useState({
-    // "title":"enchilladas",
-    // "description":"greatest Mexican food",
-    // "ingredients":[
-    //   {"id":0,"name":"chicken"},
-    //   {"id":1,"name":"cheese"}],
-    // "steps":["cook chicken","eat cheese"],
-    // "notes":"I am Moana","id":1628354456995
-});
+  const [reviewData, setReviewData] = useState({});
   const [haveData, setHaveData] = useState(false);
+
   useEffect( () => {
     ipcRenderer.on("reviewData", handleReviewData)
     return () => {
@@ -41,7 +34,6 @@ export default function Review({handleNext, handleBack}) {
   }, [])
 
   const handleReviewData = (event, data) => {
-    // console.log("receiving data: ",  data);
     setReviewData(data);
     setHaveData(true);
   }

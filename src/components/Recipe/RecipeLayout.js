@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { ipcRenderer } from "electron";
 import TitleBar from "./TitleBar";
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,7 +10,6 @@ import Modal from "@material-ui/core/Modal"
 import Backdrop from "@material-ui/core/Backdrop"
 import Fade from "@material-ui/core/Fade"
 
-// .......... Styling .............
 const useStyles = makeStyles((theme) => ({
   layoutStyle: {
     paddingBottom: "10px"
@@ -56,15 +55,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-// ....................... RecipeLayout .....................
 export default function RecipeLayout({cardDat, review}) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [ingrList, setIngrList] = useState(cardDat.ingredients);
 
   const checkBoxChange = (isChecked, id) => {
-    //keeps track of changes in checkboxes
-
     const newList = ingrList.map((item) => {
       if(item.id === id) {
         return {
@@ -75,11 +71,6 @@ export default function RecipeLayout({cardDat, review}) {
       }
       return item;
     });
-
-    //FIXME: testing
-    newList.map((item)=> {
-      console.log(item.checked);
-    })
 
     setIngrList(newList)
   }
@@ -105,7 +96,8 @@ export default function RecipeLayout({cardDat, review}) {
     ipcRenderer.send("updateCart", data);
   }
 
-  // ..... Return ......
+
+
   if(cardDat === "") {
     return (
       <div>Error</div>

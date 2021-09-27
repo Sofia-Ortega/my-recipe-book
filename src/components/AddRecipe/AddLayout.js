@@ -7,7 +7,6 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
-
 import IngrDirInput from "./IngrAndDir/IngrDirInput";
 import FinalInfoInput from "./FinalInfoInput";
 import TitleInput from "./TitleInput";
@@ -15,7 +14,6 @@ import Review from "./Review"
 
 const useStyles = makeStyles( (theme) =>({
   root: {
-    //width: '100%',
     margin: "30px"
   },
   backButton: {
@@ -40,7 +38,6 @@ function getSteps() {
   return ['Title', 'Ingredients & Directions', 'Final notes', 'Review'];
 }
 
-
 export default function AddLayout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -61,18 +58,16 @@ export default function AddLayout() {
         return 'Unknown stepIndex';
     }
   }
+
   const handleNext = () => {
-    //keeps track of next btn
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
-    //keeps track of back btn
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const handleReset = () => {
-    //resets entire add process
     setActiveStep(0);
   };
 

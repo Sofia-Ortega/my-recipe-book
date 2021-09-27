@@ -1,6 +1,5 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Ingredient from "./Ingredient";
-
 
 
 export default function Ingredients({ingrList, checkBoxChange}) {

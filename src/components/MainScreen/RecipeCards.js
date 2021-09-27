@@ -21,27 +21,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RecipeCards({data, openCard}) {
-  const showData = () => {
-    console.log(data);
-  }
   const classes = useStyles();
- if(data === []) {
-   ipcRenderer.send("sendDataJson");
-   return (
-     <div>Loading</div>
-   )
 
- } else {
+  if (data === []) {
+    ipcRenderer.send("sendDataJson");
+    return (
+      <div>Loading</div>
+    )
 
-   return (
-     <div className={classes.recipeCards}>
-       {/*<button onClick={showData}>Data</button>*/}
-       {
-         data.map((recipe) => (
-           <RecipeCard dat={recipe} key={recipe.id} openCard={openCard}/>
-         ))
-       }
-     </div>
-   )
- }
+  } else {
+
+    return (
+      <div className={classes.recipeCards}>
+        {
+          data.map((recipe) => (
+            <RecipeCard dat={recipe} key={recipe.id} openCard={openCard}/>
+          ))
+        }
+      </div>
+    )
+  }
 }

@@ -5,8 +5,8 @@ import NextButton from "./NextButton";
 
 
 export default function TitleInput({handleNext}) {
-  const [title, getTitle] = useState("Title");
-  const [description, getDescription] = useState("Description");
+  const [title, getTitle] = useState("");
+  const [description, getDescription] = useState("");
 
   const handleData = (data) => {
     if(data[0] === "title") {

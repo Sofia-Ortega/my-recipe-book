@@ -15,7 +15,6 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SortIcon from '@material-ui/icons/Sort';
 import {Tooltip} from "@material-ui/core";
 
-//.......Styling........
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -82,7 +81,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-//..............AddBarLayout......................
 export default function AppBarLayout() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);

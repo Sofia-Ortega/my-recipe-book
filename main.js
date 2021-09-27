@@ -127,7 +127,7 @@ ipcMain.on("updateCart", (event, arg) => {
   //reads data from json
   fs.readFile("./data.json", function (err,data) {
     data = JSON.parse(data);
-    data.cart[myTitle] = checkedIngr[0]; //updates data.cart
+    data.cart[myTitle] = checkedIngr; //updates data.cart
 
     //finds index of data to update ingredients
     var index = data.data.findIndex((recipe) => recipe.title === myTitle)
@@ -145,9 +145,6 @@ ipcMain.on("updateCart", (event, arg) => {
 
   })
 
-  //sends number of ingredients added for popup in mainlayout
-  //FIXME: not sending correct number of checkedIngr
-  mainWindow.send("addedCartItems", checkedIngr.length);
 })
 
 ipcMain.on("submit", () => {
@@ -195,6 +192,16 @@ ipcMain.on("deleteRecipe", (event, id) => {
     })
   })
 
+})
+
+
+ipcMain.on("requestCartData", () =>  {
+  //send shopping list data to CartLayout
+  fs.readFile("./data.json", function (err, data) {
+    data = JSON.parse(data);
+    console.log("Sending data: ", data.cart);
+   mainWindow.send("sendCartData", data.cart );
+  })
 })
 
 

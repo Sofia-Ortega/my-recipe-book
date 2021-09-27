@@ -6,14 +6,8 @@ import NextButton from "../NextButton";
 
 export default function IngrDirInput({handleNext, handleBack}) {
 
-  const [ingrList, setIngrList] = useState([
-    {'name': "One", 'id': 0},
-    {'name': 'Two', 'id': 1},
-  ]);
-  const [dirList, setDirList] = useState([
-    {'name': "cook rice", 'id': 0},
-    {'name': 'fry cheese', 'id': 1},
-  ]);
+  const [ingrList, setIngrList] = useState([]);
+  const [dirList, setDirList] = useState([]);
 
   function nextClick() {
     let data = {
@@ -32,9 +26,7 @@ export default function IngrDirInput({handleNext, handleBack}) {
       'id': Date.now()
     }
 
-    //update and rest
     setDirList([...dirList, data])
-
   }
 
   function addIngr(val) {
@@ -55,6 +47,7 @@ export default function IngrDirInput({handleNext, handleBack}) {
   const delIngr = (id) => {
     setIngrList(ingrList.filter((ingr) => ingr.id !== id))
   }
+
   return (
     <div >
       <IngredientInput addIngr={addIngr} delIngr={delIngr} ingrList={ingrList}/>
