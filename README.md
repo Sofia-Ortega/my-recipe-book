@@ -2,10 +2,14 @@
 _Personal app to start your modern recipe book_
 
 My Recipe Book involves all things cooking and recipes. Easily add your 
-personal recipes. Add items to your shopping cart. A modern take on a 
+personal recipes. Add items to your shopping cart. A modern take on 
 recipes books.
 
-###General Info: 
+#### Technology
+* React.js
+* Electron.js
+
+### General Info: 
 <p align="center">
     <img src="./assets/MainLayoutScreenShot.PNG" width="auto" />
 </p>
@@ -26,9 +30,6 @@ Easily add your recipes!
     <img src="./assets/AddScreenShot.PNG" width="auto" />
 </p>
 
-#### Technology
-* React.js
-* Electron.js
 
 ### Get started:
 * Run `npm install`
@@ -36,5 +37,3 @@ Easily add your recipes!
 ##### Development
 * Run `npm run dev` to start webpack-dev-server. Electron will launch automatically after compilation.
 
-##### Production
-_Coming soon_
